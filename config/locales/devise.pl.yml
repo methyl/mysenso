@@ -1,0 +1,46 @@
+pl:
+  errors:
+    messages:
+      not_found: "nie znaleziono"
+      already_confirmed: "już został aktywowany"
+      not_locked: "nie był zablokowany"
+      not_saved:
+        one: "%{resource} nie został zapisany z powodu jednego błędu:"
+        other: "%{resource} nie został zapisany z powodu %{count} błędów:"
+
+  devise:
+    failure:
+      unauthenticated: 'Aby kontynuować zaloguj lub zarejestruj się.'
+      unconfirmed: 'Aby kontynuować aktywuj konto.'
+      locked: 'Konto jest zablokowane.'
+      invalid: 'Niepoprawny adres email lub hasło.'
+      invalid_token: 'Niepoprawny token.'
+      timeout: 'Sesja wygasła, aby kontynuować zaloguj się ponownie.'
+      inactive: 'Konto nie zostało jeszcze aktywowane.'
+    sessions:
+      signed_in: 'Zalogowano pomyślnie.'
+      signed_out: 'Wylogowano pomyślnie.'
+    passwords:
+      send_instructions: 'Instrukcja zmiany hasła zostanie niezwłocznie wysłana na podany adres email.'
+      updated: 'Hasło zmienione poprawnie. Zostałeś automatycznie zalogowany.'
+    confirmations:
+      send_instructions: 'Instrukcja jak aktywować konto zostanie niezwłocznie wysłana na podany adres email.'
+      confirmed: 'Konto zostało poprawnie aktywowane. Zostałeś automatycznie zalogowany.'
+    registrations:
+      signed_up: 'Rejestracja zakończyła się pomyślnie.'
+      inactive_signed_up: 'Rejestracja zakończyła się pomyślnie. Nie zostałeś jednak zalogowany ponieważ konto jest obecnie nieaktywne.'
+      updated: 'Konto zostało pomyślnie zauktualizowane.'
+      destroyed: 'Konto zostało usunięte.'
+    unlocks:
+      send_instructions: 'Instrukcja jak odblokować konto zostanie niezwłocznie wysłana na podany adres email.'
+      unlocked: 'Pomyślnie odblokowano konto. Zostałeś automatycznie zalogowany.'
+    omniauth_callbacks:
+      success: 'Logowanie przez konto %{kind} zakończyło się sukcesem.'
+      failure: 'Logowanie przez konto %{kind} zakończyło się błedęm z powodu "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrukcja aktywacji konta'
+      reset_password_instructions:
+        subject: 'Instrukcja ustawienia nowego hasła'
+      unlock_instructions:
+        subject: 'Instrukcja odblokowania konta'

@@ -1,0 +1,10 @@
+%h2 Zaloguj się
+= semantic_form_for(User.new, :url => user_session_path) do |f|
+  = f.inputs do
+    = f.input :email
+    = f.input :password
+    = if devise_mapping.rememberable?
+      %p= f.input :remember_me, :as => :boolean
+      = f.buttons do
+        %p= f.submit "Zaloguj się"
+        = render :partial => "devise/shared/links"

@@ -1,0 +1,8 @@
+= semantic_form_for(resource, :as => resource_name, :url => user_registration_path) do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.inputs :email, :password, :password_confirmation
+    = f.input :profession, :as => :select, :collection => Profession.find(:all)
+    = f.input :gender, :as => :radio, :collection => {"Mężczyzna" => :male, "Kobieta" => :female}
+  = f.buttons do
+    = f.commit_button 'Zarejestruj się'

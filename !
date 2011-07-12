@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Mysenso
+    = stylesheet_link_tag :all
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+  %body
+    - if user_signed_in? do
+    = current_user.email
+    %p.notice
+      = notice
+    %p.alert
+      = notice
+    = yield
