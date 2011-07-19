@@ -7,7 +7,9 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'formtastic'
-
+gem 'mongoid', :git => 'https://github.com/mongoid/mongoid.git'
+gem 'bson_ext'
+gem "SystemTimer", "~> 1.2.3"
 group :development, :test do
 	gem 'rspec-rails'
   gem 'steak'

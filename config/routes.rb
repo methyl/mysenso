@@ -1,8 +1,8 @@
 Mysenso::Application.routes.draw do
-  get "home/index"
-  
-  match "profile/edit" => "users#edit"
-  match "users/edit" => "users#edit"
+  put '/profile/edit' => 'users#update'
+  get '/profile/edit' => 'users#edit'
+  get '/profile/:id' => 'users#show'
+  get "/users/edit"
   
   devise_for :users
   

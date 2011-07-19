@@ -10,10 +10,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110712112246) do
+ActiveRecord::Schema.define(:version => 20110713125221) do
 
   create_table "professions", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_profiles", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "phone_number"
+    t.string   "region"
+    t.string   "city"
+    t.string   "portfolio_name"
+    t.date     "birth_date"
+    t.string   "gender"
+    t.string   "ethnicity"
+    t.string   "hair"
+    t.string   "eyes"
+    t.integer  "height"
+    t.integer  "weight"
+    t.string   "bust"
+    t.string   "bra"
+    t.integer  "waist"
+    t.integer  "hips"
+    t.string   "panties"
+    t.integer  "dress"
+    t.integer  "shoes"
+    t.integer  "pants"
+    t.integer  "neck"
+    t.string   "preferable_region"
+    t.string   "about"
+    t.string   "webpage"
+    t.string   "courses"
+    t.string   "references"
+    t.integer  "landline_number"
+    t.integer  "fax_number"
+    t.string   "achievements"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20110712112246) do
     t.integer  "user_id"
     t.string   "login"
     t.integer  "profession_id"
+    t.text     "languages"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

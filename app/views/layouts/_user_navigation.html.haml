@@ -1,13 +1,13 @@
 - if user_signed_in? 
-  = current_user.email
+  = "Witaj, #{current_user.first_name || 'nieznajomy'} (#{current_user.email})"
   = link_to('Wyloguj się', destroy_user_session_path, :method => :delete)
-
+  = link_to('Edytuj swój profil', profile_edit_path)
 - if not user_signed_in?
   
   #login_box
-    = semantic_form_for :user, :url => user_session_path do |f|
+    = semantic_form_for User.new, :url => user_session_path do |f|
       = f.inputs do
-        = f.input :email
+        = f.input :email, :name => "asd"
         = f.input :password
         = f.input :remember_me, :as => :boolean
       = f.buttons do

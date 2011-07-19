@@ -394,7 +394,7 @@ pl:
       odd: "musi być nieparzyste"
       even: "musi być parzyste"
 
-  activerecord:
+  mongoid:
     
     errors:
       template:
@@ -427,5 +427,41 @@ pl:
         first_name: "Imię"
         last_name: "Nazwisko"
         phone_number: "Numer telefonu"
-        gender: Płeć
-        profession: Profesja
+        gender: "Płeć"
+        profession_id: "Profesja"
+        city: Miasto
+        region: Województwo
+        ethnicity: Pochodzenie etniczne
+        hair_color: Kolor włosów
+        eye_color: Kolor oczu
+        height: Wzrost
+        weight: Waga
+        bust: Biust
+        bra: Biustonosz
+        waist: Talia
+        hips: Biodra
+        panties: Majtki
+        dress: Ubranie
+        shoes: Obuwie
+        pants: Spodnie
+        neck: Kołnierzyk
+        prefered_region: Preferowany region pracy
+        about: O sobie
+        webpage: Twoja strona WWW
+        courses: Kursy, szkolenia
+        references: Referencje
+        languages: Języki
+        achievements: Osiągnięcia
+        fax_number: Numer FAX
+        landline_number: Numer stacjonarny
+        disciplines: Zakres pracy
+        gadu_gadu: Numer Gadu-Gadu
+        birth_date: Data urodzenia
+        portfolio_name: Nazwa portfolio
+        availability: Dyspozycyjność
+  formtastic:
+    titles:
+      contact_data: Dane osobowe
+      portfolio_and_appearance: Dane Twojego profilu
+      others: Inne
+

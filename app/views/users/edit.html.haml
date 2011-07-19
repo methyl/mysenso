@@ -1,0 +1,6 @@
+%h2 Edytuj swój profil
+- unless current_user.profile_completed
+  %p
+    Wypełnij wszystkie pola oznaczone gwiazdką, aby dokończyć rejestrację.
+= render :partial => 'edit_form'
+
