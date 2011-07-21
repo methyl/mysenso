@@ -56,7 +56,7 @@ class User
   
   validates_presence_of :first_name, :last_name, :phone_number, :region, :region_id, :city, :portfolio_name, :birth_date, :prefered_region_id, :on => :update
 
-  validates_presence_of :ethnicity, :ethnicity_id, :hair_color,:hair_color_id, :eye_color, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :unless => Proc.new {|a| a.profession.type == 2 }
+  validates_presence_of :ethnicity, :ethnicity_id, :hair_color,:hair_color_id, :eye_color, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :unless => Proc.new {|a| a.profession[:type] == 2 }
   validates_presence_of :bust, :bra, :if => :female_model?
   validates_presence_of :pants, :neck, :if => :male_model?
 
@@ -67,17 +67,37 @@ class User
 
   after_save :update_languages # workaround
   after_update :set_profile_completed
+  
+  def profession_name
+    if profession.type == 1
+      "Modelka" if gender == 'female'
+      "Model" if gender == 'male'
+    end
+    profession.name
+  end
+
+  def gender_string
+    return 'Mężczyzna' if gender == 'male'
+    return 'Kobieta' if gender == 'female'
+  end
+
+  def age
+    age = ((Date.today - birth_date) / 1.year).ceil
+    post = " lat"
+    last = age.to_s[-1]
+    post += 'a' if last == '2' or last == '3' or last == '4'
+    age.to_s + post
+  end
+
+  private
+
   def female_model?
-    profession.type != 2 and gender == 'female'
+    profession[:type] != 2 and gender == 'female'
   end
 
   def male_model?
-    profession.type !=2 and gender == 'male'
+    profession[:type] !=2 and gender == 'male'
   end
-  private
-
-  
-
   def update_languages
     self.languages.each do |language|
       language.user_ids ||= []
@@ -85,8 +105,6 @@ class User
       language.save
     end
   end
-  public
-  
 
   def set_profile_completed
     unless profile_completed

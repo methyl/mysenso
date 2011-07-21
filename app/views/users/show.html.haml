@@ -1,2 +1,32 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+%h1
+  = @user.portfolio_name
+  |
+  = @user.profession_name
+
+%dd
+  %dl
+    Imię
+  %dd= @user.first_name
+  %dl
+    Nazwisko
+  %dd= @user.last_name
+  %dl
+    Miejscowość
+  %dt= @user.city
+  %dl
+    Województwo
+  %dt= @user.region.name
+  %dl
+    Numer telefonu
+  %dd= @user.phone_number
+  %dl
+    Wiek
+  %dd= @user.age
+  %dl
+    Pochodzenie etniczne
+  %dt= @user.ethnicity.name
+  %dl
+    Płeć
+  %dt= @user.gender_string
+
+

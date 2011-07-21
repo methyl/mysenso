@@ -164,4 +164,14 @@ feature 'Users', %q{
       page.should_not have_content item
     end
   end
+
+
+  scenario 'Viewing the profile' do
+    user = Factory :user
+    visit user_profile_path(user.id)
+    ['Mężczyzna','Model', 766112123, 'Mariusz', 'Kowalski', 'Jasło', 'Lapis Lazuri', '18 lat', '175 cm', '45 kg', '60 cm', '10 cm', '31 cm', '39 EU', '10 EU', '10 cm', 'Jestem zajebisty', 'nocuje.net', 'Islandia', 'są'].each do |item|
+      page.should have_content item
+    end
+    
+  end
 end

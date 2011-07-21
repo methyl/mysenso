@@ -1,13 +1,15 @@
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
-require 'mongoid'
+require 'spork'
+Spork.prefork do
+  ENV["RAILS_ENV"] ||= 'test'
+  require File.expand_path("../../config/environment", __FILE__)
+  require 'rspec/rails'
+  require 'mongoid'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-RSpec.configure do |config|
+  RSpec.configure do |config|
 # == Mock Framework
 #
 # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -15,7 +17,7 @@ RSpec.configure do |config|
 # config.mock_with :mocha
 # config.mock_with :flexmock
 # config.mock_with :rr
-config.mock_with :rspec
+    config.mock_with :rspec
 
 # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
 # config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -24,9 +26,9 @@ config.mock_with :rspec
 # examples within a transaction, remove the following line or assign false
 # instead of true.
 # config.use_transactional_fixtures = true
-config.before(:each) do
-Mongoid.master.collections.select {|c| c.name !~ /system/ }.each(&:drop)
-load "#{Rails.root}/db/seeds.rb"
+    config.before(:each) do
+      Mongoid.master.collections.select {|c| c.name !~ /system/ }.each(&:drop)
+      load "#{Rails.root}/db/seeds.rb"
+    end
+  end
 end
-end
-

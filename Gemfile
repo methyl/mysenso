@@ -18,4 +18,5 @@ group :development, :test do
 	gem 'factory_girl_rails'
 	gem 'shoulda-matchers'
 	gem 'rails3-generators'
+  gem 'spork', :git => "git://github.com/chrismdp/spork.git"
 end
