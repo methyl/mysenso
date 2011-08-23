@@ -1,7 +1,11 @@
 - if user_signed_in? 
-  = "Witaj, #{current_user.first_name || 'nieznajomy'} (#{current_user.email})"
+  Witaj, 
+  = current_user.first_name ? link_to(current_user.first_name, user_path(current_user)) : 'nieznajomy' 
+  = "(#{current_user.email})"
   = link_to('Wyloguj się', destroy_user_session_path, :method => :delete)
-  = link_to('Edytuj swój profil', profile_edit_path)
+  = link_to('Edytuj swój profil', edit_user_path)
+  = link_to('Edytuj avatar', user_avatar_path)
+  = link_to('Twoje zdjęcia', manage_photos_path)
 - if not user_signed_in?
   
   #login_box

@@ -26,3 +26,13 @@
   ['polski', 'angielski', 'niemiecki', 'francuski', 'rosyjski'].each {|name| Factory :language, :name => name}
 
   ['w dni powszednie od poniedziałku do piątku', 'w weekendy', 'pełna dyspozycyjność (24h)', 'prawo jazdy','samochód'].each {|name| Factory :availability, :name => name}
+
+  ['A','A75','B','B75','C','C75','D','D75','E'].each {|name| Factory :bra, :name => name }
+
+  cities = File.new(File.join(::Rails.root, "db", "cities_list_short.txt"))
+  cities.each do |city|
+    City.create(:name => city.strip)
+  end
+
+
+  

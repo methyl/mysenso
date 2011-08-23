@@ -1,9 +1,16 @@
 class UsersController < ApplicationController
+  autocomplete :city, :name
+
   def index
+    @users = params[:search] ? User.search(params[:search]).page(params[:page]).per(1) : User.all.page(params[:page]).per(1)
+  end
+
+  def search
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user || User.find(params[:id])
+    @photos = @user.photos
   end
 
   def edit
@@ -16,6 +23,7 @@ class UsersController < ApplicationController
     @languages = Language.all
     @availability_items = Availability.all
     @professions = Profession.all
+    @bras = Bra.all
   end
 
   def update
@@ -28,12 +36,15 @@ class UsersController < ApplicationController
     @languages = Language.all
     @availability_items = Availability.all
     @professions = Profession.all
+    @bras = Bra.all
     if current_user.update_attributes(params[:user])
-      redirect_to profile_edit_path, :notice => "Twoje dane zostały zaktualizowne." 
+      redirect_to edit_user_path, :notice => "Twoje dane zostały zaktualizowne." 
     else
       render :action => 'edit'
     end
   end
+
+
 
   def delete
   end

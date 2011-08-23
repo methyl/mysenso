@@ -8,8 +8,14 @@ gem 'haml-rails'
 gem 'devise'
 gem 'formtastic'
 gem 'mongoid', :git => 'https://github.com/mongoid/mongoid.git'
+gem 'kaminari'
 gem 'bson_ext'
 gem "SystemTimer", "~> 1.2.3"
+gem 'jquery-rails', '>= 1.0.12'
+gem 'carrierwave', "0.5.4"
+gem 'rmagick'
+gem 'rails3-jquery-autocomplete'
+
 group :development, :test do
 	gem 'rspec-rails'
   gem 'steak'
@@ -18,5 +24,5 @@ group :development, :test do
 	gem 'factory_girl_rails'
 	gem 'shoulda-matchers'
 	gem 'rails3-generators'
-  gem 'spork', :git => "git://github.com/chrismdp/spork.git"
+  # gem 'spork', :git => "git://github.com/chrismdp/spork.git"
 end

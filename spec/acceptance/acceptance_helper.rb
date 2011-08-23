@@ -39,5 +39,5 @@ def home_path
 end
 
 def user_profile_path(user_id=1)
-  "/profile/#{user_id}"
+  "/users/#{user_id}"
 end
