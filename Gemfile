@@ -18,6 +18,8 @@ gem 'rails3-jquery-autocomplete'
 gem 'factory_girl_rails'
 gem 'factory_girl'		
 gem 'dalli'
+gem 'unicorn'
+
 group :development, :test do
 	gem 'rspec-rails'
   gem 'steak'
