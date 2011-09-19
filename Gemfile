@@ -7,7 +7,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'formtastic'
-gem 'mongoid', :git => 'https://github.com/mongoid/mongoid.git'
+gem 'mongoid', :branch => '2.1.0-stable', :git => 'https://github.com/mongoid/mongoid.git'
 gem 'kaminari'
 gem 'bson_ext'
 # gem "SystemTimer", "~> 1.2.3"
