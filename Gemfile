@@ -16,13 +16,13 @@ gem 'jquery-rails', '>= 1.0.12'
 gem 'carrierwave', "0.5.4"
 gem 'rmagick'
 gem 'rails3-jquery-autocomplete'
+gem 'factory_girl_rails'
+gem 'factory_girl'		
 
 group :development, :test do
 	gem 'rspec-rails'
   gem 'steak'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
-	gem 'factory_girl'		
-	gem 'factory_girl_rails'
 	gem 'shoulda-matchers'
 	gem 'rails3-generators'
   # gem 'spork', :git => "git://github.com/chrismdp/spork.git"
