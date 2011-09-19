@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Region
   include Mongoid::Document
   field :name

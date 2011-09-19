@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Availability
   include Mongoid::Document
   field :name

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Mysenso::Application.routes.draw do
   resource :user do
     resource :avatar do

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 # Put your acceptance spec helpers inside spec/acceptance/support

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddUserIdAndLoginToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :user_id, :integer

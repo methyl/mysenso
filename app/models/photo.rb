@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Photo
   include Mongoid::Document
   field :title

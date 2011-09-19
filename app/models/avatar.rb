@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Avatar
   include Mongoid::Document
 

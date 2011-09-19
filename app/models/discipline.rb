@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Discipline # < ActiveRecord::Base
   include Mongoid::Document
   
