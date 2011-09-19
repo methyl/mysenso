@@ -9,10 +9,10 @@ test:
 # set these environment variables on your prod server
 production:
   host: staff.mongohq.com
-  port: 10082
+  port: 10093
   username: heroku
   password: 4885870
-  database: app1051709
+  database: app1052767
   # slaves:
   #   - host: slave1.local
   #     port: 27018
