@@ -18,6 +18,7 @@ gem 'rmagick'
 gem 'rails3-jquery-autocomplete'
 gem 'factory_girl_rails'
 gem 'factory_girl'		
+gem 'unicorn'
 
 group :development, :test do
 	gem 'rspec-rails'
