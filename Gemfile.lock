@@ -59,6 +59,7 @@ GEM
       activesupport (~> 3.0)
     childprocess (0.2.2)
       ffi (~> 1.0.6)
+    dalli (1.1.2)
     devise (1.4.5)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -163,6 +164,7 @@ DEPENDENCIES
   bson_ext
   capybara!
   carrierwave (= 0.5.4)
+  dalli
   devise
   factory_girl
   factory_girl_rails

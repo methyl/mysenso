@@ -17,7 +17,7 @@ gem 'rmagick'
 gem 'rails3-jquery-autocomplete'
 gem 'factory_girl_rails'
 gem 'factory_girl'		
-
+gem 'dalli'
 group :development, :test do
 	gem 'rspec-rails'
   gem 'steak'
