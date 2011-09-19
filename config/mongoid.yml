@@ -8,11 +8,11 @@ test:
 
 # set these environment variables on your prod server
 production:
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
+  host: staff.mongohq.com
+  port: 10082
+  username: heroku
+  password: 4885870
+  database: app1051709
   # slaves:
   #   - host: slave1.local
   #     port: 27018
