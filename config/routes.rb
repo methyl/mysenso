@@ -45,5 +45,10 @@ Mysenso::Application.routes.draw do
   put '/users/:id' => 'users#update', :as => 'user'
 
   root :to => "home#index"
+
+  # for blitz.io
+  get '/mu-5342c52d-8a3cd42b-4cbe1a41-5cc10e82' do
+    '42'
+  end
   
 end
