@@ -69,7 +69,7 @@ class User
   has_many :sent_messages, :class_name => "PrivateMessage", :foreign_key => "sender_id"
   has_many :received_messages, :class_name => "PrivateMessage", :foreign_key => "receiver_id"
   has_many :references
-  has_many :issued_references, :foreign_key => 'issuer_id'
+  has_many :issued_references, :foreign_key => 'issuer_id', :class_name => "Reference"
 
   has_one :avatar
    
