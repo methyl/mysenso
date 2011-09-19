@@ -6,6 +6,9 @@
 - if @user.avatar
   = image_tag @user.avatar.image_url.to_s
 
+- if user_signed_in? && current_user != @user
+  = link_to 'Wyślij prywatną wiadomość', new_user_private_message_path(@user)
+  = link_to 'Zostaw referencję', new_user_reference_path(@user)
 %dl
   %dt
     Imię
@@ -86,14 +89,18 @@
   %h2
     Odbyte kursy/szkolenia
   = @user.courses
-#references
-  %h2
-    Referencje
-  = @user.references
+
+- unless @references.empty?
+  #references
+    %h2
+      Referencje
+    - @references.each do |reference|
+      = reference.content
+      
+    
 
 - unless @photos.empty?
   %h3
     Lista zdjęć
   %ul
-    - @user.photos.each do |photo|
-      = link_to(image_tag(photo.image_url(:thumb), :class => "photo"), photo_path(photo))
+    = render @photos

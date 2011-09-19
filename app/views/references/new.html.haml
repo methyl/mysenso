@@ -1,0 +1,7 @@
+%h2
+  Zostaw referencję użytkownikowi
+  = @user.login
+
+= semantic_form_for [@user,@user.references.build] do |f|
+  = f.input :content
+  = f.buttons

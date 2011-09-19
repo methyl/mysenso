@@ -1,0 +1,3 @@
+%li
+  = link_to(private_message.title, private_message_path(private_message), :class => ["private_message",("unread" if private_message.unread?)])
+  = (check_box_tag 'private_message_ids[]', private_message.id) if private_message.receiver == current_user

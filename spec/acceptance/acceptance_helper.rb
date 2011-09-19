@@ -34,6 +34,17 @@ def sign_out
   click_link 'Wyloguj się'
 end
 
+def create_photo
+  sign_in
+  click_link 'Twoje zdjęcia'
+  fill_in "photo[title]", :with => "Fajne zdjęcie"
+  fill_in "photo[description]", :with => "Z wakacji nad morzem 2011"
+  path = File.join(::Rails.root, "photo.jpg")
+  attach_file 'photo_image', path
+  select "Fashion", :from => "photo_discipline_id"
+  click_button 'photo_submit'
+end
+
 def home_path
   '/'
 end

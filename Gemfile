@@ -10,7 +10,8 @@ gem 'formtastic'
 gem 'mongoid', :git => 'https://github.com/mongoid/mongoid.git'
 gem 'kaminari'
 gem 'bson_ext'
-gem "SystemTimer", "~> 1.2.3"
+# gem "SystemTimer", "~> 1.2.3"
+# gem 'timeout'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'carrierwave', "0.5.4"
 gem 'rmagick'

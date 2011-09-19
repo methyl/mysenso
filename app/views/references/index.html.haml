@@ -1,0 +1,16 @@
+%h2
+  Twoje referencje
+
+- unless @references.unaccepted.empty?
+  %h3
+    Do akceptacji
+  %ul
+    - @references.unaccepted.each do |reference|
+      %li
+        = reference.content
+        = link_to "Akceptuj", accept_reference_path(reference), :method => :put
+        = link_to "Usuń", reference_path(reference), :method => :delete
+      
+
+%h3
+  Wystawione Tobie

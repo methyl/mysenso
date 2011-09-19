@@ -1,0 +1,7 @@
+%h2= @photo.title
+
+%p= image_tag @photo.image_url, :class => 'photo'
+
+%p= @photo.description
+
+%p= @photo.discipline.name

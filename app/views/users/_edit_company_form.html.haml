@@ -1,0 +1,20 @@
+= semantic_form_for current_user do |f|
+  = f.semantic_errors
+  = f.inputs :company do
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :phone_number
+    = f.input :landline_number
+    = f.input :fax_number
+    = f.input :webpage
+    = f.input :company_name
+    = f.input :region, :as => :select, :collection => @regions, :prompt => "wybierz województwo..."
+    = f.input :city
+    = f.input :street
+    = f.input :postcode
+    = f.input :nip
+    = f.input :regon
+    = f.input :description, :as => :text
+
+  = f.buttons do
+    = f.commit_button

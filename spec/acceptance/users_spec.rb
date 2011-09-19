@@ -93,7 +93,6 @@ feature 'Users', %q{
     fill_in 'user_webpage', :with => 'nocuje.net'
     fill_in 'user_courses', :with => 'none'
     fill_in 'user_gadu_gadu', :with => '31231231'
-    fill_in 'user_references', :with => 'none'
     save_page
     click_button 'user_submit'
     page.should have_content 'Twoje dane zostały zaktualizowne.'
@@ -105,7 +104,7 @@ feature 'Users', %q{
     sign_in_as('female_model@gmail.com', 'test123')
     visit home_path
     click_link 'Edytuj swój profil'
-    ['Kolor włosów', 'Kolor oczu', 'Wzrost', 'Waga', 'Biust', 'Biustonosz', 'Talia', 'Biodra', 'Ubranie', 'Obuwie', 'Zakres pracy', 'Preferowany region pracy', 'Języki', 'O sobie', 'Twoja strona WWW', 'Numer Gadu-Gadu', 'Kursy, szkolenia', 'Referencje'].each do |item|
+    ['Kolor włosów', 'Kolor oczu', 'Wzrost', 'Waga', 'Biust', 'Biustonosz', 'Talia', 'Biodra', 'Ubranie', 'Obuwie', 'Zakres pracy', 'Preferowany region pracy', 'Języki', 'O sobie', 'Twoja strona WWW', 'Numer Gadu-Gadu', 'Kursy, szkolenia'].each do |item|
       page.should have_content item
     end
     ['Kołnierzyk', 'Spodnie', 'Dyspozycyjność'].each do |item|
@@ -118,7 +117,7 @@ feature 'Users', %q{
     sign_in #default male model
     visit home_path
     click_link 'Edytuj swój profil'
-    ['Kolor włosów', 'Kolor oczu', 'Wzrost', 'Waga', 'Talia', 'Biodra', 'Ubranie', 'Obuwie','Spodnie','Kołnierzyk', 'Zakres pracy', 'Preferowany region pracy', 'Języki', 'O sobie', 'Twoja strona WWW', 'Numer Gadu-Gadu', 'Kursy, szkolenia', 'Referencje'].each do |item|
+    ['Kolor włosów', 'Kolor oczu', 'Wzrost', 'Waga', 'Talia', 'Biodra', 'Ubranie', 'Obuwie','Spodnie','Kołnierzyk', 'Zakres pracy', 'Preferowany region pracy', 'Języki', 'O sobie', 'Twoja strona WWW', 'Numer Gadu-Gadu', 'Kursy, szkolenia'].each do |item|
       page.should have_content item
     end
     ['Biust', 'Biustonosz', 'Dyspozycyjność'].each do |item|
@@ -131,7 +130,7 @@ feature 'Users', %q{
     sign_in_as('photographer@gmail.com', 'test123')
     visit home_path
     click_link 'Edytuj swój profil'
-    ['Zakres pracy', 'Preferowany region pracy', 'O sobie', 'Twoja strona WWW', 'Kursy, szkolenia', 'Referencje', 'Osiągnięcia'].each do |item|
+    ['Zakres pracy', 'Preferowany region pracy', 'O sobie', 'Twoja strona WWW', 'Kursy, szkolenia', 'Osiągnięcia'].each do |item|
       page.should have_content item
     end
     ['Kolor włosów', 'Kolor oczu', 'Wzrost', 'Waga', 'Talia', 'Biodra', 'Ubranie', 'Obuwie','Spodnie','Kołnierzyk', 'Biust','Biustonosz','Kołnierzyk', 'Spodnie', 'Dyspozycyjność'].each do |item|
@@ -143,7 +142,7 @@ feature 'Users', %q{
     sign_in_as('female_host@gmail.com', 'test123')
     visit home_path
     click_link 'Edytuj swój profil'
-    ['Kolor włosów', 'Kolor oczu', 'Wzrost', 'Waga', 'Biust', 'Biustonosz', 'Talia', 'Biodra', 'Ubranie', 'Obuwie', 'Zakres pracy', 'Preferowany region pracy', 'Języki', 'O sobie', 'Twoja strona WWW', 'Numer Gadu-Gadu', 'Kursy, szkolenia', 'Referencje', 'Dyspozycyjność'].each do |item|
+    ['Kolor włosów', 'Kolor oczu', 'Wzrost', 'Waga', 'Biust', 'Biustonosz', 'Talia', 'Biodra', 'Ubranie', 'Obuwie', 'Zakres pracy', 'Preferowany region pracy', 'Języki', 'O sobie', 'Twoja strona WWW', 'Numer Gadu-Gadu', 'Kursy, szkolenia', 'Dyspozycyjność'].each do |item|
       page.should have_content item
     end
     ['Kołnierzyk', 'Spodnie'].each do |item|
@@ -155,7 +154,7 @@ feature 'Users', %q{
     sign_in_as('male_host@gmail.com', 'test123')
     visit home_path
     click_link 'Edytuj swój profil'
-    ['Kolor włosów', 'Kolor oczu', 'Wzrost', 'Waga', 'Kołnierzyk', 'Spodnie', 'Talia', 'Biodra', 'Ubranie', 'Obuwie', 'Zakres pracy', 'Preferowany region pracy', 'Języki', 'O sobie', 'Twoja strona WWW', 'Numer Gadu-Gadu', 'Kursy, szkolenia', 'Referencje', 'Dyspozycyjność'].each do |item|
+    ['Kolor włosów', 'Kolor oczu', 'Wzrost', 'Waga', 'Kołnierzyk', 'Spodnie', 'Talia', 'Biodra', 'Ubranie', 'Obuwie', 'Zakres pracy', 'Preferowany region pracy', 'Języki', 'O sobie', 'Twoja strona WWW', 'Numer Gadu-Gadu', 'Kursy, szkolenia', 'Dyspozycyjność'].each do |item|
       page.should have_content item
     end
     ['Biust', 'Biustonosz'].each do |item|
@@ -167,7 +166,7 @@ feature 'Users', %q{
   scenario 'Viewing the profile' do
     user = Factory :male_model
     visit user_profile_path(user.id)
-    ['Mężczyzna','Model', 766112123, 'Mariusz', 'Kowalski', 'Jasło', '17 lat', '175 cm', '45 kg', '60 cm', '10 cm', '31 cm', '39 EU', '10 EU', '10 cm', 'Coś o mnie', 'nocuje.net', 'Kurs w Islandii czy cośtam', 'Mam referencje ale nie powiem'].each do |item|
+    ['Mężczyzna','Model', 766112123, 'Mariusz', 'Kowalski', 'Jasło', '17 lat', '175 cm', '45 kg', '60 cm', '10 cm', '31 cm', '39 EU', '10 EU', '10 cm', 'Coś o mnie', 'nocuje.net', 'Kurs w Islandii czy cośtam'].each do |item|
       page.should have_content item
     end
 

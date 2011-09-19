@@ -16,7 +16,6 @@ Factory.define :user do |f|
   f.association :prefered_region
   f.webpage 'nocuje.net'
   f.courses 'Kurs w Islandii czy cośtam'
-  f.references 'Mam referencje ale nie powiem' 
   f.birth_date 18.years.ago+6.months
 end
 

@@ -10,6 +10,7 @@
   Factory :profession, :name => 'Modelka / Model', :type => 1
   ['Fotograf', 'Fryzjer', 'Wizażysta', 'Stylista mody', 'Projektant'].each {|name| Factory :profession, :name => name, :type => 2 }
   Factory :profession, :name => 'Hostessa / Host', :type => 3
+  Factory :profession, :name => 'Agencja', :type => 4
 
   ['Fashion', 'Portret', 'Glamour', 'Bielizna', 'Strój kąpielowy', 'Komercyjne', 'Akt'].each {|name| Factory :discipline, :name => name, :profession_types => [1,2]}
   ['Hostessa / Host', 'Wybieg', 'Taniec'].each {|name| Factory :discipline, :name => name, :profession_types => [1]}

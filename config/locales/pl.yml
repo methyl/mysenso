@@ -459,6 +459,7 @@ pl:
         birth_date: Data urodzenia
         portfolio_name: Nazwa portfolio
         availability: Dyspozycyjność
+        company: Konto firmowe
   formtastic:
     titles:
       contact_data: Dane osobowe

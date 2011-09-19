@@ -1,0 +1,46 @@
+%h2
+  Wyszukaj użytkowników
+
+= semantic_form_for :search, :url => users_path do |f|
+  = f.inputs do
+    = f.input :profession, :as => :select, :collection => Profession.all, :required => false, :label => "Profesja"
+    = f.input :gender, :as => :radio, :collection => {"Mężczyzna" => :male, "Kobieta" => :female}, :required => false, :label => 'Płeć'
+    = f.input :city, :required => false, :label => 'Miejscowość'
+    = f.input :region, :as => :select, :collection => Region.all, :required => false, :label => 'Województwo'
+    = f.inputs "Wiek" do
+      = f.input :minimum_age, :label => 'od', :required => false
+      = f.input :maximum_age, :label => 'do', :required => false
+  = f.inputs "Informacje i wymiary" do
+    = f.input :ethnicity, :as => :select, :collection => Ethnicity.all, :multiple => true, :include_blank => false, :required => false, :label => "Pochodzenie etniczne"
+    = f.input :hair_color, :as => :select, :collection => HairColor.all, :multiple => true, :include_blank => false, :required => false, :label => "Kolor włosów"
+    = f.input :eye_color, :as => :select, :collection => EyeColor.all, :multiple => true, :include_blank => false, :required => false, :label => "Kolor oczu"
+    = f.inputs "Wzrost" do
+      = f.input :minimum_height, :label => 'od', :required => false
+      = f.input :maximum_height, :label => 'do', :required => false
+    = f.inputs "Waga" do
+      = f.input :minimum_weight, :label => 'od', :required => false
+      = f.input :maximum_weight, :label => 'do', :required => false
+    = f.inputs "Biust" do
+      = f.input :minimum_bust, :label => 'od', :required => false
+      = f.input :maximum_bust, :label => 'do', :required => false
+    = f.inputs "Talia" do
+      = f.input :minimum_waist, :label => 'od', :required => false
+      = f.input :maximum_waist, :label => 'do', :required => false
+    = f.inputs "Biodra" do
+      = f.input :minimum_hips, :label => 'od', :required => false
+      = f.input :maximum_hips, :label => 'do', :required => false
+    = f.inputs "Obuwie" do
+      = f.input :minimum_shoes, :label => 'od', :required => false
+      = f.input :maximum_shoes, :label => 'do', :required => false
+    = f.inputs "Spodnie" do
+      = f.input :minimum_pants, :label => 'od', :required => false
+      = f.input :maximum_pants, :label => 'do', :required => false
+    = f.inputs "Kołnierzyk" do
+      = f.input :minimum_neck, :label => 'od', :required => false
+      = f.input :maximum_neck, :label => 'do', :required => false
+    = f.input :disciplines, :as => :select, :multiple => true, :label => 'Zakres wykonywanych prac', :required => false, :collection => Discipline.all, :include_blank => false
+    = f.input :prefered_region, :as => :select, :label => 'Preferowany region pracy', :required => false, :collection => PreferedRegion.all
+    = f.input :languages, :as => :select, :multiple => true, :label => 'Języki', :required => false, :collection => Language.all, :include_blank => false
+    = f.input :availabilities, :as => :select, :multiple => true, :label => "Dyspozycyjność", :required => false, :collection => Availability.all, :include_blank => false
+  = f.buttons do  
+    = f.submit "Wyszukaj"

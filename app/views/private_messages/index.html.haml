@@ -1,0 +1,17 @@
+%h2
+  Twoje prywatne wiadomości
+
+%h3
+  Odebrane
+
+%ul
+  = form_tag destroy_multiple_private_messages_path, :method => :delete do
+    = render @received_messages
+    = submit_tag "Usuń zaznaczone" unless @received_messages.empty?
+
+%h3
+  Wysłane
+
+%ul
+  = render @sent_messages
+

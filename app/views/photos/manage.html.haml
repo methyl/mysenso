@@ -1,0 +1,11 @@
+%h2
+  Zarządzaj swoimi zdjęciami
+
+%h3
+  Dodaj zdjęcie
+= render 'form'
+- unless @photos.empty?
+  %h3
+    Lista zdjęć
+  %ul
+    = render @photos

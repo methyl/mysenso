@@ -2,5 +2,8 @@
 - unless current_user.profile_completed
   %p
     Wypełnij wszystkie pola oznaczone gwiazdką, aby dokończyć rejestrację.
-= render :partial => 'edit_form'
+- if current_user.company?
+  = render :partial => 'edit_company_form'
+- else
+  = render :partial => 'edit_user_form'
 

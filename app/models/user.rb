@@ -1,11 +1,22 @@
 class User
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes 
+
+  # Common fields
   field :first_name
   field :last_name
   field :login
   field :phone_number, :type => Integer
   field :region
+  field :webpage
+  field :courses
+  field :gadu_gadu, :type => Integer
+  field :achievements
+  field :profile_completed, :type => Boolean, :default => false
+  field :avatar
+  field :city
+
+  # Profile fields
   field :gender
   field :birth_date, :type => Date
   field :height, :type => Integer
@@ -20,31 +31,31 @@ class User
   field :neck, :type => Integer
   field :preferable_region
   field :about
-  field :webpage
-  field :courses
-  field :references
+
+  # Company fields
+  field :nip, :type => Integer
+  field :regon, :type => Integer
+  field :postcode
+  field :street
+  field :company_name
   field :landline_number, :type => Integer
   field :fax_number, :type => Integer
-  field :gadu_gadu, :type => Integer
-  field :achievements
-  field :profile_completed, :type => Boolean
-  field :avatar
-  field :city
+  field :description
+  field :company, :type => Boolean, :default => false
+
 
   key :login
 
 
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  # Devise configuration
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
-  # scopes
-  # scope :by_height, lambda {|from, to| where(:height.gt => from).where(:height.lt => to) }
-  # scope :by_weight, lambda {|from, to| where(:weight.gt => from).where(:weight.lt => to) }
+ 
+  # Accessible attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :login, :first_name, :last_name, :phone_number, :gender, :profession_id, :region_id, :city, :birth_date, :ethnicity_id, :hair_color_id, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :pants, :neck, :prefered_region_id, :about, :webpage, :courses, :references, :language_ids, :discipline_ids, :gadu_gadu, :bra_id, :bust, :panties, :profile_completed, :achievements, :avatar, :company, :description, :fax_number, :landline_number, :company_name, :street, :postcode, :regon, :nip
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :login, :first_name, :last_name, :phone_number, :gender, :profession_id, :region_id, :city_id, :birth_date, :ethnicity_id, :hair_color_id, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :pants, :neck, :prefered_region_id, :about, :webpage, :courses, :references, :language_ids, :discipline_ids, :gadu_gadu, :bra_id, :bust, :panties, :profile_completed, :achievements, :avatar
 
+  # Associations
   belongs_to :profession
   belongs_to :region
   belongs_to :ethnicity
@@ -54,6 +65,10 @@ class User
   belongs_to :bra
 
   has_many :photos
+  has_many :sent_messages, :class_name => "PrivateMessage", :foreign_key => "sender_id"
+  has_many :received_messages, :class_name => "PrivateMessage", :foreign_key => "receiver_id"
+  has_many :references
+  has_many :issued_references, :foreign_key => 'issuer_id'
 
   has_one :avatar
    
@@ -61,27 +76,50 @@ class User
   has_and_belongs_to_many :disciplines
   has_and_belongs_to_many :availabilities
 
-  validates_presence_of :profession, :profession_id, :gender, :login
+
+  # Common validations
   validates_length_of :phone_number, :is => 9, :allow_blank => true
-  validates_numericality_of :phone_number, :height, :weight, :waist, :hips, :bust, :shoes, :pants, :neck, :gadu_gadu, :on => :update, :allow_blank => true
-  
-  validates_presence_of :first_name, :last_name, :region, :region_id, :city, :birth_date, :prefered_region_id, :on => :update
-
-  validates_presence_of :ethnicity, :ethnicity_id, :hair_color,:hair_color_id, :eye_color, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :unless => Proc.new {|a| a.profession[:type] == 2 }, :on => :updte
-  validates_presence_of :bust, :bra, :bra_id, :if => :female_model?, :on => :update
-  validates_presence_of :pants, :neck, :if => :male_model?, :on => :update
-
   validates_length_of :first_name, :within => 3..20, :allow_blank => true
   validates_length_of :last_name, :within => 3..40, :allow_blank => true
+  validates_numericality_of :phone_number, :height, :weight, :waist, :hips, :bust, :shoes, :pants, :neck, :gadu_gadu, :on => :update, :allow_blank => true
+
+  validates_presence_of :first_name, :last_name, :city, :region, :region_id, :on => :update
+  validates_presence_of :login
+  validates_associated :region
+
+
+
+  # Profile validations
+  with_options :if => :profile? do |profile|
+    profile.validates_presence_of :gender, :profession_id, :profession
+    profile.validates_presence_of :birth_date, :prefered_region_id, :on => :update
+    profile.validates_presence_of :ethnicity, :ethnicity_id, :hair_color, :hair_color_id, :eye_color, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :unless => Proc.new {|a| a.profession[:type] == 2 }, :on => :update
+    profile.validates_presence_of :bust, :bra, :bra_id, :if => :female_model?, :on => :update
+    profile.validates_presence_of :pants, :neck, :if => :male_model?, :on => :update
+
+    profile.validates_associated :profession
+    profile.validates_associated :hair_color, :ethnicity, :eye_color, :bra, :on => :update
+  end
+
+
+
+  # Company validations
+  with_options :if => :company? do |company|
+    company.validates_presence_of :phone_number, :if => "landline_number.nil?", :on => :update
+    company.validates_presence_of :landline_number, :if => "phone_number.nil?", :on => :update
+    company.validates_presence_of :company_name, :street, :postcode, :on => :update
+  end
 
   
-
+  # Callbacks
   after_save :update_languages # workaround
   after_update :set_profile_completed
 
+  # Scopes
+  scope :completed, where(:profile_completed => true)
 
   def self.search(conditions)
-    users = User.where(:profile_completed => true)
+    users = User.completed
     users = users.where(:city.in => conditions[:city]) unless conditions[:city].empty?
     users = users.where(:birth_date.lte => Date.today - conditions[:minimum_age].to_i.years) unless conditions[:minimum_age].blank?
     users = users.where(:birth_date.gte => Date.today - conditions[:maximum_age].to_i.years) unless conditions[:maximum_age].blank?
@@ -100,7 +138,17 @@ class User
     users
   end
 
+  def profile?
+    not company
+  end
 
+  def company?
+    company
+  end
+
+  def photos_limit_exceeded?
+    photos.count > 4 ? true : false
+  end
 
   def profession_name
     if profession.type == 1

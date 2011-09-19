@@ -2,7 +2,8 @@
   = f.semantic_errors if defined?(resource) 
   = f.inputs do
     = f.inputs :email, :password, :password_confirmation, :login
-    = f.input :profession_id, :as => :select, :collection => Profession.find(:all), :label => true, :include_blank => false
+    = f.input :company, :as => :boolean, :label => "Konto firmowe"
+    = f.input :profession_id, :as => :select, :collection => Profession.find(:all), :label => true, :include_blank => false,  :prompt => "wybierz profesję..."
     = f.input :gender, :as => :radio, :collection => {"Mężczyzna" => :male, "Kobieta" => :female}
   = f.buttons do
     = f.commit_button 'Zarejestruj się'

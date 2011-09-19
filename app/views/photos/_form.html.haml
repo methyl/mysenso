@@ -1,0 +1,8 @@
+= semantic_form_for @photo, :html => {:multipart => true} do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :image, :as => :file
+    = f.input :title
+    = f.input :description, :as => :text
+    = f.input :discipline, :as => :select, :collection => Discipline.where(:profession_types => 2)
+  = f.buttons
