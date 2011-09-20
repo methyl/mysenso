@@ -1,7 +1,8 @@
 .bundle
+.autotest
 db/*.sqlite3
 log/*.log
 tmp/
-public/uploads/
-spec/
-test/
+public/uploads/*
+spec/*
+test/*
