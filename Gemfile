@@ -19,6 +19,7 @@ gem 'factory_girl_rails'
 gem 'factory_girl'		
 gem 'dalli'
 gem 'unicorn'
+gem 'fog'
 
 group :development, :test do
 	gem 'rspec-rails'
