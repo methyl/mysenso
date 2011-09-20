@@ -49,7 +49,7 @@ class User
 
 
   # Devise configuration
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
  
   # Accessible attributes
