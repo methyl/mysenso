@@ -1,0 +1,24 @@
+s3_access_key_id: AKIAIJRIUCWCZVN3ZW5A
+s3_secret_access_key: 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
+s3_bucket: cdn01.mysenso
+
+javascripts:
+  workspace:
+    - public/javascripts/jquery.min.js
+    - public/javascripts/jquery-ui.min.js
+    - public/javascripts/jquery_ujs.js
+    - public/javascripts/jquery.Jcrop.min.js
+    - public/javascripts/autocomplete-rails.js
+
+stylesheets:
+  print:
+    - public/stylesheets/print.css
+
+  screen:
+    - public/stylesheets/screen.css
+    - public/stylesheets/layout.css
+
+  libs:
+    - public/stylesheets/jquery.Jcrop.css
+    - public/stylesheets/smoothness/jquery-ui-1.8.14.custom.css
+
