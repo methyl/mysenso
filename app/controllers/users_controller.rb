@@ -3,10 +3,21 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => [:edit, :update, :delete]
 
   def index
-    @users = params[:search] ? User.search(params[:search]).page(params[:page]).per(3) : User.completed.page(params[:page]).per(1)
+    per_page = 10
+    if params[:search_companies]
+      @users = User.companies.completed
+      @users = @users.where(:region => params[:search_companies][:region]) if params[:region]
+      @users = @users.where(:company_name => /#{params[:search_companies][:company_name]}/i) if params[:company_name]
+      @users = @users.page(params[:page]).per(per_page)
+    else
+      @users = params[:search] ? User.profiles.search(params[:search]).page(params[:page]).per(per_page) : User.completed.profiles.page(params[:page]).per(per_page)
+    end
   end
 
   def search
+  end
+
+  def search_companies
   end
 
   def show

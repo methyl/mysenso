@@ -36,6 +36,7 @@ Mysenso::Application.routes.draw do
   resources :users, :except => [:update, :show] do
     collection do
       get 'search'
+      get 'search_companies'
       post 'index'
     end
     resource :private_message, :only => [:new]
@@ -45,6 +46,8 @@ Mysenso::Application.routes.draw do
   put '/users/:id' => 'users#update', :as => 'user'
 
   root :to => "home#index"
+
+  match 'user_root' => 'home#index'
 
   
 end

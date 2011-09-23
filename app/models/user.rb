@@ -118,6 +118,8 @@ class User
 
   # Scopes
   scope :completed, where(:profile_completed => true)
+  scope :companies, where(:company => true)
+  scope :profiles, where(:company.ne => true)
 
   def self.search(conditions)
     users = User.completed
@@ -152,7 +154,7 @@ class User
   end
 
   def profession_name
-    if profession.type == 1
+    if profession[:type] == 1
       return "Modelka" if gender == 'female'
       return "Model" if gender == 'male'
     end

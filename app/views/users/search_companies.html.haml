@@ -1,0 +1,8 @@
+%h2
+  Wyszukaj agencje
+
+= semantic_form_for :search_companies, :url => users_path do |f|
+  = f.inputs do
+    = f.input :region, :as => :select, :collection => Region.all, :prompt => "wybierz województwo..."
+    = f.input :company_name
+  = f.buttons

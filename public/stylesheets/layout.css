@@ -1,3 +1,34 @@
-a.private_message.unread{
-  font-weight:bold
+/* line 5, ../../app/stylesheets/layout.sass */
+body {
+  background: #260424 url(../images/layout/bg.png) repeat-x;
+}
+/* line 11, ../../app/stylesheets/layout.sass */
+body #header {
+  color: #c6a2c1;
+  height: 185px;
+  background: url(../images/layout/header-bg.jpg);
+}
+/* line 19, ../../app/stylesheets/layout.sass */
+body #header a {
+  color: #c6a2c1;
+}
+/* line 27, ../../app/stylesheets/layout.sass */
+body #content {
+  background-color: #e2e2e2;
+}
+/* line 33, ../../app/stylesheets/layout.sass */
+body #content .box {
+  background-color: white;
+  padding: 1px;
+  border: 1px solid #cccccc;
+}
+/* line 43, ../../app/stylesheets/layout.sass */
+body #content .box h2 {
+  border-left: 4px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  font-size: 14px;
+  font-weight: bold;
+  color: #6b6b6b;
+  background-color: #f6f6f6;
+  text-indent: 8px;
 }

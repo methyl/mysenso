@@ -3,7 +3,7 @@
     = javascript_include_tag 'avatar_crop'
   - if @avatar.image
     = image_tag @avatar.image_url, :id => "cropbox"
-    = link_to "Usuń avatar", user_avatar_path, :method => :delete
+    = link_to "Usuń", user_avatar_path, :method => :delete
 
     - unless @avatar.cropping?
       = form_for @avatar, :url => { :action => "update_crop" } do |f|

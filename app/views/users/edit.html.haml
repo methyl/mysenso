@@ -1,9 +1,14 @@
-%h2 Edytuj swój profil
-- unless current_user.profile_completed
-  %p
-    Wypełnij wszystkie pola oznaczone gwiazdką, aby dokończyć rejestrację.
-- if current_user.company?
-  = render :partial => 'edit_company_form'
-- else
-  = render :partial => 'edit_user_form'
+#edit-user-sidebar
+  .box
+    %h2 Zarządzaj profilem
+#edit-user-content
+  .box
+    %h2 Edytuj swój profil
+    - unless current_user.profile_completed
+      %p
+        Wypełnij wszystkie pola oznaczone gwiazdką, aby dokończyć rejestrację.
+    - if current_user.company?
+      = render :partial => 'edit_company_form'
+    - else
+      = render :partial => 'edit_profile_form'
 

@@ -20,6 +20,7 @@ gem 'factory_girl'
 gem 'dalli'
 gem 'unicorn'
 gem 'fog'
+gem "compass", ">= 0.11.5"
 
 group :development, :test do
 	gem 'rspec-rails'

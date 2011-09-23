@@ -1,0 +1,30 @@
+@import blueprint/colors
+
+body
+  background: $blueprint-background-color url(../images/layout/bg.png) repeat-x
+
+  #header
+    color: $top-menu-color
+    height: 185px
+    background: url(../images/layout/header-bg.jpg)
+    a
+      color: $top-menu-color
+
+
+  #content
+    background-color: $content-bg-color
+
+    .box
+      background-color: $box-bg-color
+      padding: 1px
+      border: 1px solid $box-border-color
+
+      h2
+        border-left: 4px solid $box-border-color
+        border-bottom: 1px solid $box-border-color
+        font-size: 14px
+        font-weight: bold
+        color: #6b6b6b
+        background-color: $box-header-bg-color
+        text-indent: 8px
+
