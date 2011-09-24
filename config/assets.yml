@@ -1,6 +1,9 @@
 s3_access_key_id: AKIAIJRIUCWCZVN3ZW5A
 s3_secret_access_key: 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
 s3_bucket: cdn01.mysenso
+s3_upload_files:
+  - public/javascripts/**
+  - public/stylesheets/**
 
 javascripts:
   workspace:
