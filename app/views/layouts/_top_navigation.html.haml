@@ -21,6 +21,6 @@
           = f.input :password, :label => 'Hasło: '
         = f.buttons do
           = f.input :remember_me, :as => :boolean, :label => 'Zapamiętaj mnie', :wrapper_html => {:class => 'remember-me'}
-          = f.commit_button 'Zaloguj się', :button_html => { :type => "image", :src => "/images/layout/login-button.png"}
+          = f.commit_button 'Zaloguj się', :button_html => { :type => "image", :src => "#{asset_path}/images/layout/login-button.png"}
         = render :partial => 'devise/shared/links', :locals => {:modal_box => 'login'}
 

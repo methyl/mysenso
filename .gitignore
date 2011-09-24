@@ -3,6 +3,9 @@
 db/*.sqlite3
 log/*.log
 tmp/
-public/
+public/images
+public/javascripts
+public/stylesheets
+public/uploads
 spec/
 test/
