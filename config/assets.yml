@@ -9,6 +9,9 @@ javascripts:
     - public/javascripts/jquery_ujs.js
     - public/javascripts/jquery.Jcrop.min.js
     - public/javascripts/autocomplete-rails.js
+    - public/javascripts/jquery.leanModal.min.js
+
+    - public/javascripts/application.js
 
 stylesheets:
   print:
@@ -21,4 +24,5 @@ stylesheets:
   libs:
     - public/stylesheets/jquery.Jcrop.css
     - public/stylesheets/smoothness/jquery-ui-1.8.14.custom.css
+    - public/stylesheets/libs.css
 

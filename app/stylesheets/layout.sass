@@ -1,14 +1,30 @@
-@import blueprint/colors
+@import blueprint
+@import forms
+
+@mixin modal-box
+  display: none
+  border: 1px solid #666
+  background: #fff url(../images/layout/modal-bg.png) repeat-x bottom
+  padding: 10px
+  form
+    @include modal-form
 
 body
   background: $blueprint-background-color url(../images/layout/bg.png) repeat-x
 
   #header
-    color: $top-menu-color
     height: 185px
     background: url(../images/layout/header-bg.jpg)
+    color: #e3e3e3
     a
-      color: $top-menu-color
+      color: #e3e3e3
+    
+    #login-box
+      @include modal-box
+
+    #registration-box
+      @include modal-box
+        
 
 
   #content

@@ -1,2 +1,10 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+// lean modal triggers
+
+  // login
+    $(function() {
+        $("#login-trigger").leanModal({ top : 200, overlay : 0.4 });		
+    });
+  // registration
+    $(function() {
+        $("#registration-trigger").leanModal({ top : 200, overlay : 0.4 });		
+    });

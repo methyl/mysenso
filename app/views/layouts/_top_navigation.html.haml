@@ -12,14 +12,15 @@
 
 
   - if not user_signed_in?
+    = link_to 'Logowanie', '#login-box', :id => "login-trigger"
+    = link_to 'Rejestracja', new_registration_path(:user)
     #login-box
       = semantic_form_for User.new, :url => user_session_path do |f|
         = f.inputs do
-          = f.input :email, :name => "asd"
-          = f.input :password
-          = f.input :remember_me, :as => :boolean
+          = f.input :email, :label => 'E-mail: '
+          = f.input :password, :label => 'Hasło: '
         = f.buttons do
-          = f.commit_button 'Zaloguj się'
+          = f.input :remember_me, :as => :boolean, :label => 'Zapamiętaj mnie', :wrapper_html => {:class => 'remember-me'}
+          = f.commit_button 'Zaloguj się', :button_html => { :type => "image", :src => "/images/layout/login-button.png"}
+        = render :partial => 'devise/shared/links', :locals => {:modal_box => 'login'}
 
-    #registration-box
-      = render :partial => 'users/registration_form'

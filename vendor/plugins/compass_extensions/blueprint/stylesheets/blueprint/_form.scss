@@ -57,8 +57,6 @@
   $focus-border-color: #666666,
   $fieldset-border-color: #cccccc
 ) {
-  fieldset {
-    border: 1px solid $fieldset-border-color; }
   input.text, input.title, input[type=email], input[type=text], input[type=password],
   textarea {
     background-color:#fff;

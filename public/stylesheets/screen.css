@@ -423,22 +423,18 @@ form.bp select {
 form.bp ol {
   list-style-type: none;
 }
-/* line 60, ../../vendor/plugins/compass_extensions/blueprint/stylesheets/blueprint/_form.scss */
-form.bp fieldset {
-  border: 1px solid #cccccc;
-}
-/* line 63, ../../vendor/plugins/compass_extensions/blueprint/stylesheets/blueprint/_form.scss */
+/* line 61, ../../vendor/plugins/compass_extensions/blueprint/stylesheets/blueprint/_form.scss */
 form.bp input.text, form.bp input.title, form.bp input[type=email], form.bp input[type=text], form.bp input[type=password],
 form.bp textarea {
   background-color: #fff;
   border: 1px solid #bbbbbb;
 }
-/* line 66, ../../vendor/plugins/compass_extensions/blueprint/stylesheets/blueprint/_form.scss */
+/* line 64, ../../vendor/plugins/compass_extensions/blueprint/stylesheets/blueprint/_form.scss */
 form.bp input.text:focus, form.bp input.title:focus, form.bp input[type=email]:focus, form.bp input[type=text]:focus, form.bp input[type=password]:focus,
 form.bp textarea:focus {
   border-color: #666666;
 }
-/* line 70, ../../vendor/plugins/compass_extensions/blueprint/stylesheets/blueprint/_form.scss */
+/* line 68, ../../vendor/plugins/compass_extensions/blueprint/stylesheets/blueprint/_form.scss */
 form.bp select {
   background-color: #fff;
   border-width: 1px;

@@ -1,0 +1,52 @@
+@import blueprint/colors
+
+@mixin basic-form
+  ol
+    list-style-type: none
+  abbr
+    display: none
+  input 
+    &.text,
+    &.title,
+    &[type=email],
+    &[type=text],
+    &[type=password]
+      height: 18px
+      font-size: 14px
+      padding: 2px
+      margin: 5px 0
+  fieldset.inputs
+    label
+      width: 40px
+      text-align: right
+      line-height: 24px
+      margin: 5px 0
+      margin-right: 4px
+  
+
+@mixin modal-form
+  @include basic-form
+
+  color: $font-color
+
+  fieldset.inputs
+    label, input
+      display: block
+      float: left
+
+  fieldset.buttons
+    padding-left: 41px
+    .remember-me
+      label
+        margin-top: -1px
+    .create
+      margin-top: 15px
+      margin-left: 30px
+
+  .links
+    text-align: center
+    a
+      color: #b5048c
+      &:hover
+        color: #b5048c + 30
+
