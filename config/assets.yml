@@ -13,7 +13,6 @@ javascripts:
     - public/javascripts/jquery.Jcrop.min.js
     - public/javascripts/autocomplete-rails.js
     - public/javascripts/jquery.leanModal.min.js
-
     - public/javascripts/application.js
 
 stylesheets:
