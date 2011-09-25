@@ -79,19 +79,19 @@ class User
 
 
   # Common validations
-  validates_length_of :phone_number, :is => 9, :allow_blank => true
-  validates_length_of :first_name, :within => 3..20, :allow_blank => true
-  validates_length_of :last_name, :within => 3..40, :allow_blank => true
-  validates_numericality_of :phone_number, :height, :weight, :waist, :hips, :bust, :shoes, :pants, :neck, :gadu_gadu, :on => :update, :allow_blank => true
-
-  validates_presence_of :first_name, :last_name, :city, :region, :region_id, :on => :update
+  with_options :if => :confirmed? do |confirmed|
+    confirmed.validates_length_of :phone_number, :is => 9, :allow_blank => true
+    confirmed.validates_length_of :first_name, :within => 3..20, :allow_blank => true
+    confirmed.validates_length_of :last_name, :within => 3..40, :allow_blank => true
+    confirmed.validates_numericality_of :phone_number, :height, :weight, :waist, :hips, :bust, :shoes, :pants, :neck, :gadu_gadu, :on => :update, :allow_blank => true
+    confirmed.validates_presence_of :first_name, :last_name, :city, :region, :region_id, :on => :update
+  end
   validates_presence_of :login
-  validates_associated :region
 
 
 
   # Profile validations
-  with_options :if => :profile? do |profile|
+  with_options :if => Proc.new {|a| a.confirmed? and a.profile?} do |profile|
     profile.validates_presence_of :gender, :profession_id, :profession
     profile.validates_presence_of :birth_date, :prefered_region_id, :on => :update
     profile.validates_presence_of :ethnicity, :ethnicity_id, :hair_color, :hair_color_id, :eye_color, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :unless => Proc.new {|a| a.profession[:type] == 2 }, :on => :update
@@ -105,7 +105,7 @@ class User
 
 
   # Company validations
-  with_options :if => :company? do |company|
+  with_options :if => Proc.new {|a| a.confirmed? and a.company?} do |company|
     company.validates_presence_of :phone_number, :if => "landline_number.nil?", :on => :update
     company.validates_presence_of :landline_number, :if => "phone_number.nil?", :on => :update
     company.validates_presence_of :company_name, :street, :postcode, :on => :update
@@ -143,10 +143,6 @@ class User
 
   def profile?
     not company
-  end
-
-  def company?
-    company
   end
 
   def photos_limit_exceeded?
