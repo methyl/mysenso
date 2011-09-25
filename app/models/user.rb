@@ -55,6 +55,8 @@ class User
   # Accessible attributes
   attr_accessible :email, :password, :password_confirmation, :remember_me, :login, :first_name, :last_name, :phone_number, :gender, :profession_id, :region_id, :city, :birth_date, :ethnicity_id, :hair_color_id, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :pants, :neck, :prefered_region_id, :about, :webpage, :courses, :references, :language_ids, :discipline_ids, :gadu_gadu, :bra_id, :bust, :panties, :profile_completed, :achievements, :avatar, :company, :description, :fax_number, :landline_number, :company_name, :street, :postcode, :regon, :nip
 
+  attr_accessor :user_validatable
+
 
   # Associations
   belongs_to :profession
@@ -79,38 +81,35 @@ class User
 
 
   # Common validations
-  with_options :if => :confirmed? do |confirmed|
-    confirmed.validates_length_of :phone_number, :is => 9, :allow_blank => true
-    confirmed.validates_length_of :first_name, :within => 3..20, :allow_blank => true
-    confirmed.validates_length_of :last_name, :within => 3..40, :allow_blank => true
-    confirmed.validates_numericality_of :phone_number, :height, :weight, :waist, :hips, :bust, :shoes, :pants, :neck, :gadu_gadu, :on => :update, :allow_blank => true
-    confirmed.validates_presence_of :first_name, :last_name, :city, :region, :region_id, :on => :update
-  end
   validates_presence_of :login
+
+  with_options :if => :user_validatable? do |validatable|
+    validatable.validates_length_of :phone_number, :is => 9, :allow_blank => true
+    validatable.validates_length_of :first_name, :within => 3..20, :allow_blank => true
+    validatable.validates_length_of :last_name, :within => 3..40, :allow_blank => true
+    validatable.validates_numericality_of :phone_number, :height, :weight, :waist, :hips, :bust, :shoes, :pants, :neck, :gadu_gadu, :allow_blank => true
+    validatable.validates_presence_of :first_name, :last_name, :city, :region, :region_id
+  end
 
 
 
   # Profile validations
-  with_options :if => Proc.new {|a| a.confirmed? and a.profile?} do |profile|
-    profile.validates_presence_of :gender, :profession_id, :profession
-    profile.validates_presence_of :birth_date, :prefered_region_id, :on => :update
-    profile.validates_presence_of :ethnicity, :ethnicity_id, :hair_color, :hair_color_id, :eye_color, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :unless => Proc.new {|a| a.profession[:type] == 2 }, :on => :update
-    profile.validates_presence_of :bust, :bra, :bra_id, :if => :female_model?, :on => :update
-    profile.validates_presence_of :pants, :neck, :if => :male_model?, :on => :update
-
-    profile.validates_associated :profession
-    profile.validates_associated :hair_color, :ethnicity, :eye_color, :bra, :on => :update
+  with_options :if => [:user_validatable?, :profile?] do |profile|
+    profile.validates_presence_of :birth_date, :prefered_region_id
+    profile.validates_presence_of :ethnicity, :ethnicity_id, :hair_color, :hair_color_id, :eye_color, :eye_color_id, :weight, :height, :waist, :hips, :dress, :shoes, :unless => Proc.new {|a| a.profession[:type] == 2 }
   end
+  validates_presence_of :bust, :bra, :bra_id, :if => [:user_validatable?, :profile?, :female_model?]
+  validates_presence_of :pants, :neck, :if => [:user_validatable?, :profile?, :male_model?]
+  
 
-
+  with_options :if => :profile? do |profile|
+    profile.validates_presence_of :gender, :profession_id, :profession
+  end
 
   # Company validations
-  with_options :if => Proc.new {|a| a.confirmed? and a.company?} do |company|
-    company.validates_presence_of :phone_number, :if => "landline_number.nil?", :on => :update
-    company.validates_presence_of :landline_number, :if => "phone_number.nil?", :on => :update
-    company.validates_presence_of :company_name, :street, :postcode, :on => :update
-  end
-
+  validates_presence_of :phone_number, :if => [:user_validatable?, :company?, 'landline_number.nil?']
+  validates_presence_of :landline_number, :if => [:user_validatable?, :company?, 'phone_number.nil?']
+  validates_presence_of :company_name, :street, :postcode, :if => [:user_validatable?, :company?]
   
   # Callbacks
   after_save :update_languages # workaround
@@ -224,8 +223,16 @@ class User
     profession[:type] !=2 and gender == 'male' if profession
   end
   
+  def user_validatable!
+    @validatable = true
+  end
+
+  def user_validatable?
+    @validatable
+  end
+
   private
-  
+
   def update_languages
     self.languages.each do |language|
       language.user_ids ||= []
@@ -236,7 +243,7 @@ class User
 
   def set_profile_completed
     unless profile_completed
-      self.update_attributes :profile_completed => true
+      self.update_attributes :profile_completed => true if valid? and user_validatable?
     end
   end
 

@@ -43,6 +43,7 @@ class UsersController < ApplicationController
 
   def update
     edit
+    current_user.user_validatable!
     if current_user.update_attributes(params[:user])
       redirect_to edit_user_path, :notice => "Twoje dane zostały zaktualizowne." 
     else
