@@ -140,6 +140,10 @@ class User
     users
   end
 
+  def avatar_url
+    avatar ? avatar.image_url : "no_photo.png"
+  end
+
   def profile?
     not company
   end
@@ -154,6 +158,10 @@ class User
       return "Model" if gender == 'male'
     end
     profession.name
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 
   def gender_string

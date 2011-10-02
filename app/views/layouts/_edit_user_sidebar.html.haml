@@ -1,0 +1,15 @@
+#edit-user-sidebar
+  .box
+    %h2 Zarządzaj profilem
+    .padding
+      .avatar
+        = image_tag current_user.avatar_url, :alt => "Avatar"
+        = current_user.first_name ? link_to(current_user.full_name, user_path(current_user)) : 'Nieznajomy' 
+
+      %ul.menu
+        %li= link_to(current_user.received_messages.unread.empty? ? 'Wiadomości' : "Nowe wiadomości: #{current_user.received_messages.unread.count}", private_messages_path)
+        %li= link_to "Galeria zdjęć", manage_photos_path
+        %li= link_to "Edycja awataru", user_avatar_path
+        %li= link_to "Edycja danych", edit_user_path
+        %li= link_to(current_user.references.unaccepted.empty? ? 'Referencje' : "Nowe referencje: #{current_user.references.unaccepted.count}", references_path) unless current_user.company?
+        %li= link_to "Wyloguj się", destroy_user_session_path

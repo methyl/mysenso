@@ -40,8 +40,6 @@ body.mysenso
   #header, #footer 
     @include column($blueprint-grid-columns)
   #content
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
     $content-columns: $blueprint-grid-columns
     // true means it's the last column in the row
     @include column($content-columns, true)
@@ -50,7 +48,7 @@ body.mysenso
       padding: 20px
   
     #edit-user-sidebar
-      @include column(floor($content-columns / 4 * 1))
+      @include column(5)
 
     #edit-user-content
-      @include column(ceil($content-columns / 4 * 3) - 1, true)
+      @include column(18, true)

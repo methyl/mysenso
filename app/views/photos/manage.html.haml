@@ -1,11 +1,14 @@
-%h2
-  Zarządzaj swoimi zdjęciami
+= render :partial => 'layouts/edit_user_sidebar'
 
-%h3
-  Dodaj zdjęcie
-= render 'form'
-- unless @photos.empty?
-  %h3
-    Lista zdjęć
-  %ul
-    = render @photos
+#edit-user-content
+  .box
+    %h2
+      Zarządzaj swoimi zdjęciami
+    %h3
+      Dodaj zdjęcie
+    = render 'form'
+    - unless @photos.empty?
+      %h3
+        Lista zdjęć
+      %ul
+        = render @photos

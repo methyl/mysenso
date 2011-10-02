@@ -22,25 +22,72 @@ body
     #login-box
       @include modal-box
 
-    #registration-box
-      @include modal-box
-        
-
-
   #content
     background-color: $content-bg-color
+    padding-bottom: 20px
 
     .box
       background-color: $box-bg-color
       padding: 1px
       border: 1px solid $box-border-color
 
-      h2
+      >h2
         border-left: 4px solid $box-border-color
         border-bottom: 1px solid $box-border-color
         font-size: 14px
         font-weight: bold
         color: #6b6b6b
-        background-color: $box-header-bg-color
+        background-color: $darker-bg-color
         text-indent: 8px
+
+  #edit-user-sidebar
+    .padding
+      padding: 0 6px 20px 6px
+
+    .avatar
+      background-color: $light-bg-color
+      margin: 10px auto
+      margin-top: 0
+      text-align: center
+      border: 1px solid $border-color
+
+      img
+        width: 160px
+        display: block
+        margin: 7px auto
+
+      a
+        border-top: 1px solid $border-color
+        line-height: 24px
+        height: 24px
+        margin-bottom: 0
+        font-size: 14px
+        color: $dark-purple-color
+        font-weight: bold
+        font-family: Tahoma, sans-serif
+        display: block
+        text-decoration: none
+        &:hover
+          text-decoration: underline
+
+    ul.menu
+      list-style-type: none
+      color: $dark-purple-color
+      padding: 0
+      margin: 0
+      li
+        height: 26px
+        line-height: 26px
+        border-bottom: 1px solid $border-color
+        a
+          display: block
+          height: 26px
+          background: url(../images/layout/dot-bullet.png) no-repeat right center
+          color: $dark-purple-color
+          text-decoration: none
+          &:hover
+            color: $pink-color
+            background: url(../images/layout/dot-bullet-h.png) no-repeat right center
+
+      
 

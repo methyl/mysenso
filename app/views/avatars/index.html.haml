@@ -1,18 +1,23 @@
-- if @avatar
-  - unless @avatar.cropping?
-    = javascript_include_tag 'avatar_crop'
-  - if @avatar.image
-    = image_tag @avatar.image_url, :id => "cropbox"
-    = link_to "Usuń", user_avatar_path, :method => :delete
+= render :partial => 'layouts/edit_user_sidebar'
 
-    - unless @avatar.cropping?
-      = form_for @avatar, :url => { :action => "update_crop" } do |f|
-        - for attribute in [:crop_x, :crop_y, :crop_h, :crop_w]
-          = f.hidden_field attribute, :id => attribute
-        %p= f.submit "Crop"
+#edit-user-content
+  .box
+    %h2 Edytuj awatar
+    - if @avatar
+      - unless @avatar.cropping?
+        = javascript_include_tag 'avatar_crop'
+      - if @avatar.image
+        = image_tag @avatar.image_url, :id => "cropbox"
+        = link_to "Usuń", user_avatar_path, :method => :delete
 
-- unless @avatar
-  = semantic_form_for current_user.build_avatar, :html => {:multipart => true} do |f|
-    = f.inputs do
-      = f.input :image, :as => :file
-    = f.buttons
+        - unless @avatar.cropping?
+          = form_for @avatar, :url => { :action => "update_crop" } do |f|
+            - for attribute in [:crop_x, :crop_y, :crop_h, :crop_w]
+              = f.hidden_field attribute, :id => attribute
+            %p= f.submit "Crop"
+
+    - unless @avatar
+      = semantic_form_for current_user.build_avatar, :html => {:multipart => true} do |f|
+        = f.inputs do
+          = f.input :image, :as => :file
+        = f.buttons

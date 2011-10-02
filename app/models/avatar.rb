@@ -35,4 +35,5 @@ class Avatar
   def reprocess_profile
     self.image.recreate_versions!
   end
+
 end

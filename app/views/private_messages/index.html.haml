@@ -1,17 +1,21 @@
-%h2
-  Twoje prywatne wiadomości
+= render :partial => 'layouts/edit_user_sidebar'
 
-%h3
-  Odebrane
+#edit-user-content
+  .box
+    %h2
+      Twoje prywatne wiadomości
 
-%ul
-  = form_tag destroy_multiple_private_messages_path, :method => :delete do
-    = render @received_messages
-    = submit_tag "Usuń zaznaczone" unless @received_messages.empty?
+    %h3
+      Odebrane
 
-%h3
-  Wysłane
+    %ul
+      = form_tag destroy_multiple_private_messages_path, :method => :delete do
+        = render @received_messages
+        = submit_tag "Usuń zaznaczone" unless @received_messages.empty?
 
-%ul
-  = render @sent_messages
+    %h3
+      Wysłane
+
+    %ul
+      = render @sent_messages
 

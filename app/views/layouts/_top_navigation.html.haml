@@ -3,13 +3,7 @@
     Witaj, 
     = current_user.first_name ? link_to(current_user.first_name, user_path(current_user)) : 'nieznajomy' 
     = "(#{current_user.email})"
-    = link_to(current_user.received_messages.unread.empty? ? 'Brak nowych wiadomości' : "Nowe wiadomości: #{current_user.received_messages.unread.count}", private_messages_path)
     = link_to('Wyloguj się', destroy_user_session_path, :method => :delete)
-    = link_to(current_user.company ? 'Edytuj profil firmy' : 'Edytuj swój profil', edit_user_path)
-    = link_to(current_user.company ? 'Edytuj logo firmy' : 'Edytuj avatar', user_avatar_path)
-    = link_to('Twoje zdjęcia', manage_photos_path)
-    = link_to(current_user.references.unaccepted.empty? ? 'Brak nowych referencji' : "Nowe referencje: #{current_user.references.unaccepted.count}", references_path) unless current_user.company?
-
 
   - if not user_signed_in?
     = link_to 'Logowanie', '#login-box', :id => "login-trigger"

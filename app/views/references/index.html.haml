@@ -1,16 +1,20 @@
-%h2
-  Twoje referencje
+= render :partial => 'layouts/edit_user_sidebar'
 
-- unless @references.unaccepted.empty?
-  %h3
-    Do akceptacji
-  %ul
-    - @references.unaccepted.each do |reference|
-      %li
-        = reference.content
-        = link_to "Akceptuj", accept_reference_path(reference), :method => :put
-        = link_to "Usuń", reference_path(reference), :method => :delete
-      
+#edit-user-content
+  .box
+    %h2
+      Twoje referencje
 
-%h3
-  Wystawione Tobie
+    - unless @references.unaccepted.empty?
+      %h3
+        Do akceptacji
+      %ul
+        - @references.unaccepted.each do |reference|
+          %li
+            = reference.content
+            = link_to "Akceptuj", accept_reference_path(reference), :method => :put
+            = link_to "Usuń", reference_path(reference), :method => :delete
+          
+
+    %h3
+      Wystawione Tobie
