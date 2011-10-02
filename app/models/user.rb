@@ -141,7 +141,7 @@ class User
   end
 
   def avatar_url
-    avatar ? avatar.image_url : "no_photo.png"
+    (avatar and avatar.image_url) ? avatar.image_url : "no_photo.png"
   end
 
   def profile?
