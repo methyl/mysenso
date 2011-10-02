@@ -139,7 +139,7 @@ class User
     end
     users
   end
-
+  
   def avatar_url
     (avatar and avatar.image_url) ? avatar.image_url : "no_photo.png"
   end

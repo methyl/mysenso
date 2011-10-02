@@ -11,5 +11,6 @@
         %li= link_to "Galeria zdjęć", manage_photos_path
         %li= link_to "Edycja awataru", user_avatar_path
         %li= link_to "Edycja danych", edit_user_path
-        %li= link_to(current_user.references.unaccepted.empty? ? 'Referencje' : "Nowe referencje: #{current_user.references.unaccepted.count}", references_path) unless current_user.company?
+        -unless current_user.company?
+          %li= link_to(current_user.references.unaccepted.empty? ? 'Referencje' : "Nowe referencje: #{current_user.references.unaccepted.count}", references_path) 
         %li= link_to "Wyloguj się", destroy_user_session_path

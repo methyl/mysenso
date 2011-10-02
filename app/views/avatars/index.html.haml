@@ -3,7 +3,7 @@
 #edit-user-content
   .box
     %h2 Edytuj awatar
-    - if @avatar
+    - if @avatar and @avatar.image
       - unless @avatar.cropping?
         = javascript_include_tag 'avatar_crop'
       - if @avatar.image
@@ -16,7 +16,7 @@
               = f.hidden_field attribute, :id => attribute
             %p= f.submit "Crop"
 
-    - unless @avatar
+    - else
       = semantic_form_for current_user.build_avatar, :html => {:multipart => true} do |f|
         = f.inputs do
           = f.input :image, :as => :file
