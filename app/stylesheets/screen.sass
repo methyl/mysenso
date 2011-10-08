@@ -39,7 +39,7 @@ body.mysenso
     @include container
   #header, #footer 
     @include column($blueprint-grid-columns)
-  #content
+  #wrapper
     $content-columns: $blueprint-grid-columns
     // true means it's the last column in the row
     @include column($content-columns, true)
@@ -47,8 +47,11 @@ body.mysenso
     > .padding
       padding: 20px
   
-    #edit-user-sidebar
+    #sidebar
       @include column(5)
 
-    #edit-user-content
+    #content
       @include column(18, true)
+
+      .padding
+        padding: 10px

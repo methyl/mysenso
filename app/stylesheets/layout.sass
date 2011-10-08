@@ -9,6 +9,148 @@
   form
     @include modal-form
 
+form.default-form
+  abbr
+    border: none
+    color: $error-color
+    margin-left: 3px
+    font-weight: bold
+
+  ol
+    list-style-type: none
+
+    li
+      display: block
+      padding: 5px 0
+      line-height: 24px
+      overflow: hidden
+
+  li.date
+    clear: both
+    overflow: hidden
+
+    ol
+      padding-left: 103px
+
+    legend
+      font-weight: normal
+
+    legend label
+      float: none
+
+    li
+      float: left
+      
+      label
+        width: auto
+        padding-left: 5px
+
+  li.check_boxes, li.radio
+    clear: both
+    overflow: hidden
+
+    li, li.boolean
+      float: left
+      padding: 0
+
+      label
+        width: 110px
+        text-align: left
+
+    legend
+      display: none
+
+  li.boolean
+
+    label
+      float: left
+      width: 162px
+
+    input
+      float: right
+      margin-left: 12px
+
+  label
+    width: 140px
+    text-align: right
+    margin-right: 5px
+    display: block
+    float: left
+
+  input
+    display: block
+    float: left
+    height: 18px
+    outline: none
+
+  select
+    display: block
+    float: left
+
+  textarea
+    background: url(../images/layout/input-text-bg.png) repeat-x top
+    font-family: Arial, sans-serif
+    height: 130px
+    width: 500px
+    border: 1px solid #ddd
+
+  input
+    &[type=text],
+    &[type=password],
+    &[type=email]
+      background: url(../images/layout/input-text-bg.png) repeat-x 1px
+      border: 1px solid #ddd
+      padding-left: 5px
+      width: 205px
+      font-size: 12px
+      line-height: 18px
+
+      &:focus
+        border: 1px solid #dfa2ce
+        outline: none
+        -webkit-box-shadow: 0px 0px 4px #dfa2ce
+        -moz-box-shadow: 0px 0px 4px #dfa2ce
+        box-shadow: 0px 0px 4px #dfa2ce
+
+
+  legend
+    font-weight: bold
+
+  >fieldset.inputs
+    border-bottom: 1px dotted #ddd
+    margin-top: 15px
+    >legend
+      font-size: 16px
+      color: $dark-purple-color
+      font-weight: bold
+
+
+  li.error
+    padding: 0
+    margin: 0
+    border: none
+    background: #fff
+    color: inherit
+
+    input
+      border: 1px solid $error-color
+
+    p.inline-errors
+      display: block
+      clear: both
+      margin: 0
+      margin-left: 147px
+      color: $error-color
+
+  fieldset
+    display: block
+    clear: both
+    float: left
+    width: 100%
+    *width: 500px
+
+    
+
 body
   background: $blueprint-background-color url(../images/layout/bg.png) repeat-x
 
@@ -22,14 +164,14 @@ body
     #login-box
       @include modal-box
 
-  #content
+  #wrapper
     background-color: $content-bg-color
     padding-bottom: 20px
 
     .box
       background-color: $box-bg-color
-      padding: 1px
       border: 1px solid $box-border-color
+      overflow: hidden
 
       >h2
         border-left: 4px solid $box-border-color
@@ -39,8 +181,11 @@ body
         color: #6b6b6b
         background-color: $darker-bg-color
         text-indent: 8px
+        position: relative
 
-  #edit-user-sidebar
+        
+
+  #sidebar
     .padding
       padding: 0 6px 20px 6px
 

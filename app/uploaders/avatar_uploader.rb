@@ -16,14 +16,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_limit => [1024, 768]
+  process :resize_to_limit => [700, 525]
   process :manualcrop
 
   def manualcrop
     return unless model.cropping?
     manipulate! do |img| 
       img = img.crop(model.crop_x.to_i,model.crop_y.to_i,model.crop_h.to_i,model.crop_w.to_i) 
-      img.resize_to_fit(120,120)
+      img.resize_to_fit(160,160)
     end 
   end
 

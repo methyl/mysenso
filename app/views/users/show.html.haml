@@ -1,2 +1,4 @@
+= render :partial => "layouts/edit_user_sidebar", :if => user_signed_in?
+
 = render :partial => "show_profile", :object => @user if @user.profile?
 = render :partial => "show_company", :object => @user if @user.company?

@@ -18,7 +18,7 @@
       #header
         = render :partial => 'layouts/top_navigation'
         = render :partial => 'layouts/main_navigation'
-      #content
+      #wrapper
         .padding
           - if notice
             %p.notice
@@ -26,7 +26,12 @@
           - if alert
             %p.alert
               = alert
-          = yield
+          = render :partial => 'layouts/edit_user_sidebar' if user_signed_in?
+          #content
+            .box
+              %h2= yield :title 
+              .padding
+                = yield
       #footer
         Copyright Lucjan Suski
 

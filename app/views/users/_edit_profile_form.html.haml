@@ -1,11 +1,15 @@
-= semantic_form_for current_user, :html => {:class => 'bp'} do |f|
+= semantic_form_for current_user, :html => {:class => 'default-form'} do |f|
+  = f.inputs do
+    - unless current_user.profile_completed
+      %p
+        Wypełnij wszystkie pola oznaczone gwiazdką, aby dokończyć rejestrację.
   = f.semantic_errors
   = f.inputs :contact_data do
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :phone_number
-    = f.input :region, :as => :select, :collection => @regions, :prompt => "wybierz województwo..."
-    = f.input :city
+    = f.input :first_name, :required => true
+    = f.input :last_name, :required => true
+    = f.input :phone_number, :required => false
+    = f.input :region, :as => :select, :collection => @regions, :prompt => "wybierz województwo...", :required => true
+    = f.input :city, :required => true
   = f.inputs :portfolio_and_appearance do
     = f.input :birth_date, :as => :date, :start_year => 1900, :end_year => Time.now.year-10
     - if not current_user.profession.type == 2
@@ -24,17 +28,20 @@
       - if current_user.gender == 'male'
         = f.input :pants
         = f.input :neck
-    = f.input :disciplines, :as => :check_boxes, :collection => @disciplines
     = f.input :prefered_region, :as => :select, :collection => @prefered_regions, :include_blank => false 
-    = f.input :languages, :as => :check_boxes, :collection => @languages
+    = f.inputs "Zakres pracy" do
+      = f.input :disciplines, :as => :check_boxes, :collection => @disciplines
+    = f.inputs "Języki" do
+      = f.input :languages, :as => :check_boxes, :collection => @languages
+
   = f.inputs :others do
     - if current_user.profession.type == 3
       = f.input :availability, :as => :check_boxes, :collection => @availability_items
-    = f.input :about, :as => :text
     = f.input :webpage
     = f.input :gadu_gadu
     = f.input :courses
     = f.input :achievements
+    = f.input :about, :as => :text
 
   = f.buttons do
     = f.commit_button
