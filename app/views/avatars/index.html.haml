@@ -4,17 +4,14 @@
   .box
     %h2 Edytuj awatar
     - if @avatar and @avatar.image
-      - unless @avatar.cropping?
-        = javascript_include_tag 'avatar_crop'
-      - if @avatar.image
-        = image_tag @avatar.image_url.to_s, :id => "cropbox"
-        = link_to "Usuń", user_avatar_path.to_s, :method => :delete
+      = image_tag @avatar.image_url.to_s, :id => "cropbox"
+      = link_to "Usuń", user_avatar_path.to_s, :method => :delete
 
-        - unless @avatar.cropping?
-          = form_for @avatar, :url => { :action => "update_crop" } do |f|
-            - for attribute in [:crop_x, :crop_y, :crop_h, :crop_w]
-              = f.hidden_field attribute, :id => attribute
-            %p= f.submit "Crop"
+      - unless @avatar.cropping?
+        = form_for @avatar, :url => { :action => "update_crop" } do |f|
+          - for attribute in [:crop_x, :crop_y, :crop_h, :crop_w]
+            = f.hidden_field attribute, :id => attribute
+          %p= f.submit "Crop"
 
     - else
       = semantic_form_for current_user.build_avatar, :html => {:multipart => true} do |f|

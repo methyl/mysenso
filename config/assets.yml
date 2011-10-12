@@ -12,6 +12,7 @@ javascripts:
     - public/javascripts/jquery_ujs.js
     - public/javascripts/jquery.Jcrop.min.js
     - public/javascripts/jquery.leanModal.min.js
+    - public/javascripts/jquery.toolTip.js
     - public/javascripts/application.js
 
 stylesheets:
