@@ -1,13 +1,18 @@
 = semantic_form_for(defined?(resource) ? resource : User.new, :as => defined?(resource_name) ? resource_name : User.new, :url => user_registration_path, :html => {:class => "default-form"}) do |f|
   = f.semantic_errors if defined?(resource) 
+  %p.description
+    Rejestracja w serwisie mysenso.pl jest darmowa. Dzięki niej otrzymasz szansę na zaprezentowanie swojej twórczości. Serwis udostępnia ci możliwość tworzenia własnego portfolio, wyszukiwania oraz umieszczania ogłoszeń, uczestnictwa w dyskusjach na forum i wiele innych narzędzi, dzięki którym zbliżysz się do świata modellingu.
+    %br/
+    W celu rejestracji uzupełnij poniższy formularz.
   = f.inputs do
     = f.input :email
     = f.input :password, :hint => "przynajmniej 6 znaków"
     = f.input :password_confirmation
     = f.input :login
     = f.input :company, :as => :boolean, :label => "Konto firmowe"
-    = f.input :profession_id, :as => :select, :collection => Profession.find(:all), :label => true, :include_blank => false,  :prompt => "wybierz profesję..."
-    = f.input :gender, :as => :select, :collection => {"Mężczyzna" => :male, "Kobieta" => :female}, :prompt => "wybierz płeć..."
+    #profile-fields{:style => resource.company && "display:none"}
+      = f.input :profession_id, :as => :select, :collection => Profession.find(:all), :label => true, :include_blank => false,  :prompt => "wybierz profesję..."
+      = f.input :gender, :as => :select, :collection => {"Mężczyzna" => :male, "Kobieta" => :female}, :prompt => "wybierz płeć..."
   = f.buttons do
     = f.commit_button 'Zarejestruj się'
 

@@ -35,6 +35,7 @@ Mysenso::Application.routes.draw do
   devise_for :user, :path_prefix => 'd' do
     root :to => "home#index"
   end
+
   resources :users, :except => [:update, :show] do
     collection do
       get 'search'

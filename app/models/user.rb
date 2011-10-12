@@ -81,8 +81,9 @@ class User
 
 
   # Common validations
+  validates_uniqueness_of :login
+  validates_length_of :password, :minimum => 6, :on => :create
   validates_presence_of :login
-  validates_length_of :password, :minimum => 6
 
   with_options :if => :user_validatable? do |validatable|
     validatable.validates_length_of :phone_number, :is => 9, :allow_blank => true
