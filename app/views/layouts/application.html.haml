@@ -27,7 +27,7 @@
             %p.alert
               = alert
           = render :partial => 'layouts/edit_user_sidebar' if user_signed_in?
-          #content
+          #content{:class => user_signed_in? ? '' : 'wide'}
             .box
               %h2= yield :title 
               .padding

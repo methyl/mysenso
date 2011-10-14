@@ -22,6 +22,7 @@ gem 'unicorn'
 gem 'fog'
 gem "compass", ">= 0.11.5"
 gem 'jammit-s3'
+gem 'bluecloth'
 
 group :development, :test do
 	gem 'rspec-rails'

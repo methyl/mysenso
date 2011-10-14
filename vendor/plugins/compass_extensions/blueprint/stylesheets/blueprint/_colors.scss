@@ -8,8 +8,8 @@ $blueprint-border-color: #ddd !default;
 $border-color: $blueprint-border-color;
 
 
-$link-color:         #06c                  !default;
-$link-hover-color:   #09f                  !default;
+$link-color:         #a53b93                  !default;
+$link-hover-color:   lighten(#a53b93,10%)                  !default;
 $link-focus-color:   $link-hover-color     !default;
 $link-active-color:  lighten(adjust-hue($link-color, 75deg), 10%) !default;
 $link-visited-color: darken($link-color, 10%) !default;
@@ -45,3 +45,4 @@ $top-menu-color: #c6a2c1;
 $dark-purple-color: #593553;
 $pink-color: #ec25cb;
 $light-bg-color: #f6f6f6;
+$grey-text-color: #828282;

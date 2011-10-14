@@ -1,14 +1,14 @@
-.links
+%ul.links
   - if controller_name != 'sessions' and (not defined?(modal_box) or modal_box != 'login')
-    Jeśli posiadasz już konto, mozesz 
-    = link_to "zalogować się.", new_session_path(:user)
-    %br/
-  Jeśli nie masz konta, zapraszamy do 
-  = link_to "rejestracji.", new_registration_path(:user)
-  %br/
-  Zapomniałeś hasła? Skorzystaj z 
-  = link_to "przypomnienia.", new_password_path(:user)
-  %br/
-  Nie otrzymałeś instrukcji aktywacji - 
-  = link_to "kliknij tutaj.", new_confirmation_path(:user)
-
+    %li
+      Jeśli posiadasz już konto, mozesz 
+      = link_to "zalogować się.", new_session_path(:user) 
+  %li
+    Jeśli nie masz konta, zapraszamy do 
+    = link_to "rejestracji.", new_registration_path(:user)
+  %li
+    Zapomniałeś hasła? Skorzystaj z 
+    = link_to "przypomnienia.", new_password_path(:user)
+  %li
+    Nie otrzymałeś instrukcji aktywacji - 
+    = link_to "kliknij tutaj.", new_confirmation_path(:user)
