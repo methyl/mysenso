@@ -12,6 +12,7 @@ class User
   field :webpage
   field :courses
   field :gadu_gadu, :type => Integer
+  field :skype
   field :achievements
   field :profile_completed, :type => Boolean, :default => false
   field :avatar

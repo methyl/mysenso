@@ -9,6 +9,9 @@
     = link_to 'Logowanie', '#login-box', :id => "login-trigger"
     = link_to 'Rejestracja', new_registration_path(:user)
     #login-box
+      %h2
+        Zaloguj się
+      = link_to image_tag("layout/modal-close.png"), "#", :class => 'close'
       = semantic_form_for User.new, :url => user_session_path do |f|
         = f.inputs do
           = f.input :email, :label => 'E-mail: '

@@ -33,15 +33,17 @@
       = f.input :disciplines, :as => :check_boxes, :collection => @disciplines
     = f.inputs "Języki" do
       = f.input :languages, :as => :check_boxes, :collection => @languages
+    - if current_user.profession.type == 3
+      = f.inputs "Dyspozycyjność" do
+        = f.input :availability, :as => :check_boxes, :collection => @availability_items
 
   = f.inputs :others do
-    - if current_user.profession.type == 3
-      = f.input :availability, :as => :check_boxes, :collection => @availability_items
+    = f.input :about, :as => :text
     = f.input :webpage
     = f.input :gadu_gadu
-    = f.input :courses
-    = f.input :achievements
-    = f.input :about, :as => :text
+    = f.input :skype
+    = f.input :courses, :as => :text
+    = f.input :achievements, :as => :text
 
   = f.buttons do
     = f.commit_button
