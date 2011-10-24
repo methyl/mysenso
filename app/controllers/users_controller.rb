@@ -38,6 +38,15 @@ class UsersController < ApplicationController
       @availability_items = Availability.all
       @professions = Profession.all
       @bras = Bra.all
+      @height = (140..200).inject({}) {|h, n| h["#{n} cm"] = n; h}
+      @weight = (35..120).inject({}) {|h, n| h["#{n} kg"] = n; h}
+      @bust = (65..150).inject({}) {|h, n| h["#{n} cm"] = n; h}
+      @waist = (50..110).inject({}) {|h, n| h["#{n} cm"] = n; h}
+      @hips = (65..150).inject({}) {|h, n| h["#{n} cm"] = n; h}
+      @dress = (10..100).inject({}) {|h, n| h["#{n} cm"] = n; h}
+      @shoes = (30..48).inject({}) {|h, n| h["#{n} EU"] = n; h}
+      @pants = (38..54).inject({}) {|h, n| h["#{n} EU"] = n; h}
+      @neck = (18..45).inject({}) {|h, n| h["#{n} cm"] = n; h}
     end
   end
 

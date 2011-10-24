@@ -16,18 +16,18 @@
       = f.input :ethnicity, :as => :select, :collection => @ethnicities, :prompt => "wybierz pochodzenie..."  
       = f.input :hair_color, :as => :select, :collection => @hair_colors, :prompt => 'wybierz kolor włosów...'
       = f.input :eye_color, :as => :select, :collection => @eye_colors, :prompt => 'wybierz kolor oczu...'
-      = f.input :height
-      = f.input :weight
+      = f.input :height, :as => :select, :collection => @weight
+      = f.input :weight, :as => :select, :collection => @height
       - if current_user.gender == 'female'
         = f.input :bra, :as => :select, :collection => @bras
-        = f.input :bust
-      = f.input :waist
-      = f.input :hips
-      = f.input :dress
-      = f.input :shoes
+        = f.input :bust, :collection => @bust
+      = f.input :waist, :collection => @waist
+      = f.input :hips, :collection => @hips
+      = f.input :dress, :collection => @dress
+      = f.input :shoes, :collection => @shoes
       - if current_user.gender == 'male'
-        = f.input :pants
-        = f.input :neck
+        = f.input :pants, :collection => @pants
+        = f.input :neck, :collection => @neck
     = f.input :prefered_region, :as => :select, :collection => @prefered_regions, :include_blank => false 
     = f.inputs "Zakres pracy" do
       = f.input :disciplines, :as => :check_boxes, :collection => @disciplines
