@@ -1,0 +1,219 @@
+/* line 447, ../../app/stylesheets/forms.sass */
+form.registration-form {
+  overflow: hidden;
+  border-top: 1px dotted #dddddd;
+  border-bottom: 1px dotted #dddddd;
+  padding-bottom: 15px;
+}
+/* line 123, ../../app/stylesheets/forms.sass */
+form.registration-form abbr {
+  border: none;
+  color: #ec25cb;
+  margin-left: 3px;
+  font-weight: bold;
+}
+/* line 135, ../../app/stylesheets/forms.sass */
+form.registration-form ol {
+  list-style-type: none;
+  margin: 0;
+}
+/* line 143, ../../app/stylesheets/forms.sass */
+form.registration-form ol li {
+  display: block;
+  padding: 5px 0;
+  line-height: 24px;
+  overflow: hidden;
+}
+/* line 155, ../../app/stylesheets/forms.sass */
+form.registration-form li.date {
+  clear: both;
+  overflow: hidden;
+}
+/* line 163, ../../app/stylesheets/forms.sass */
+form.registration-form li.date ol {
+  padding-left: 103px;
+}
+/* line 169, ../../app/stylesheets/forms.sass */
+form.registration-form li.date legend {
+  font-weight: normal;
+}
+/* line 175, ../../app/stylesheets/forms.sass */
+form.registration-form li.date legend label {
+  float: none;
+}
+/* line 181, ../../app/stylesheets/forms.sass */
+form.registration-form li.date li {
+  float: left;
+}
+/* line 187, ../../app/stylesheets/forms.sass */
+form.registration-form li.date li label {
+  width: auto;
+  padding-left: 5px;
+}
+/* line 195, ../../app/stylesheets/forms.sass */
+form.registration-form li.date select {
+  width: auto;
+}
+/* line 201, ../../app/stylesheets/forms.sass */
+form.registration-form li.check_boxes, form.registration-form li.radio {
+  clear: both;
+  overflow: hidden;
+}
+/* line 209, ../../app/stylesheets/forms.sass */
+form.registration-form li.check_boxes li, form.registration-form li.check_boxes li.boolean, form.registration-form li.radio li, form.registration-form li.radio li.boolean {
+  float: left;
+  padding: 0;
+}
+/* line 217, ../../app/stylesheets/forms.sass */
+form.registration-form li.check_boxes li label, form.registration-form li.check_boxes li.boolean label, form.registration-form li.radio li label, form.registration-form li.radio li.boolean label {
+  width: 110px;
+  text-align: left;
+}
+/* line 225, ../../app/stylesheets/forms.sass */
+form.registration-form li.check_boxes legend, form.registration-form li.radio legend {
+  display: none;
+}
+/* line 235, ../../app/stylesheets/forms.sass */
+form.registration-form li.boolean label {
+  float: left;
+  width: 162px;
+}
+/* line 243, ../../app/stylesheets/forms.sass */
+form.registration-form li.boolean input {
+  float: right;
+  margin-left: 12px;
+}
+/* line 251, ../../app/stylesheets/forms.sass */
+form.registration-form label {
+  width: 140px;
+  text-align: right;
+  margin-right: 5px;
+  display: block;
+  float: left;
+}
+/* line 365, ../../app/stylesheets/forms.sass */
+form.registration-form input {
+  display: block;
+  float: left;
+  outline: none;
+}
+/* line 377, ../../app/stylesheets/forms.sass */
+form.registration-form input[type=checkbox], form.registration-form input[type=radio] {
+  height: 18px;
+}
+/* line 385, ../../app/stylesheets/forms.sass */
+form.registration-form select {
+  display: block;
+  float: left;
+  width: 212px;
+}
+/* line 395, ../../app/stylesheets/forms.sass */
+form.registration-form textarea {
+  background: url(../images/layout/input-text-bg.png) repeat-x top;
+  font-family: Arial, sans-serif;
+  height: 130px;
+  width: 500px;
+  border: 1px solid #dddddd;
+}
+/* line 409, ../../app/stylesheets/forms.sass */
+form.registration-form input[type=text], form.registration-form input[type=password], form.registration-form input[type=email] {
+  height: 18px;
+  background: url(../images/layout/input-text-bg.png) repeat-x top;
+  border: 1px solid #dddddd;
+  padding-left: 5px;
+  width: 205px;
+  font-size: 12px;
+  line-height: 18px;
+}
+/* line 431, ../../app/stylesheets/forms.sass */
+form.registration-form input[type=text]:focus, form.registration-form input[type=password]:focus, form.registration-form input[type=email]:focus {
+  border: 1px solid #dfa2ce;
+  outline: none;
+  -webkit-box-shadow: 0px 0px 4px #dfa2ce;
+  -moz-box-shadow: 0px 0px 4px #dfa2ce;
+  box-shadow: 0px 0px 4px #dfa2ce;
+}
+/* line 271, ../../app/stylesheets/forms.sass */
+form.registration-form legend {
+  font-weight: bold;
+}
+/* line 277, ../../app/stylesheets/forms.sass */
+form.registration-form > fieldset.inputs {
+  border-bottom: 1px dotted #dddddd;
+  margin-top: 15px;
+}
+/* line 283, ../../app/stylesheets/forms.sass */
+form.registration-form > fieldset.inputs > legend {
+  font-size: 16px;
+  color: #593553;
+  font-weight: bold;
+}
+/* line 295, ../../app/stylesheets/forms.sass */
+form.registration-form li.error {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: white;
+  color: inherit;
+}
+/* line 309, ../../app/stylesheets/forms.sass */
+form.registration-form li.error input {
+  border: 1px solid #8a1f11;
+}
+/* line 315, ../../app/stylesheets/forms.sass */
+form.registration-form li.error p.inline-errors {
+  display: block;
+  clear: both;
+  margin: 0;
+  margin-left: 147px;
+  color: #8a1f11;
+}
+/* line 329, ../../app/stylesheets/forms.sass */
+form.registration-form fieldset {
+  display: block;
+  clear: both;
+  float: left;
+  width: 100%;
+  *width: 500px;
+}
+/* line 345, ../../app/stylesheets/forms.sass */
+form.registration-form p.inline-hints {
+  margin: 0;
+  padding-left: 146px;
+  clear: both;
+  font-size: 11px;
+  color: #aaaaaa;
+}
+/* line 461, ../../app/stylesheets/forms.sass */
+form.registration-form p.description {
+  font-size: 11px;
+  text-align: justify;
+}
+/* line 469, ../../app/stylesheets/forms.sass */
+form.registration-form fieldset.inputs {
+  border-bottom: 0;
+  float: left;
+  width: 500px;
+  border-right: 1px dotted #dddddd;
+}
+/* line 481, ../../app/stylesheets/forms.sass */
+form.registration-form ul.links {
+  display: block;
+  float: left;
+  padding-left: 60px;
+  margin-top: 14px;
+  padding-top: 50px;
+  margin-left: 1px;
+  list-style-type: none;
+  background: url(../images/layout/info.png) no-repeat top left;
+}
+/* line 501, ../../app/stylesheets/forms.sass */
+form.registration-form ul.links li {
+  padding: 5px 0;
+  text-indent: 10px;
+  background: url(../images/layout/dot-bullet.png) no-repeat left;
+}
+/* line 511, ../../app/stylesheets/forms.sass */
+form.registration-form input.create {
+  margin-left: 232px;
+}
