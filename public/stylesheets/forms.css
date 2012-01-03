@@ -217,3 +217,9 @@ form.registration-form ul.links li {
 form.registration-form input.create {
   margin-left: 232px;
 }
+
+/* line 521, ../../app/stylesheets/forms.sass */
+form.profile-edit input.update {
+  float: right;
+  margin-right: 24px;
+}

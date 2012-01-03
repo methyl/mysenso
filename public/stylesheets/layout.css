@@ -218,6 +218,12 @@ form.registration-form input.create {
   margin-left: 232px;
 }
 
+/* line 521, ../../app/stylesheets/forms.sass */
+form.profile-edit input.update {
+  float: right;
+  margin-right: 24px;
+}
+
 /* line 123, ../../app/stylesheets/forms.sass */
 form.default-form abbr {
   border: none;
