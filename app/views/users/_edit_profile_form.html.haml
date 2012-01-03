@@ -11,13 +11,13 @@
     = f.input :region, :as => :select, :collection => @regions, :prompt => "wybierz województwo...", :required => true
     = f.input :city, :required => true
   = f.inputs :portfolio_and_appearance do
-    = f.input :birth_date, :as => :date, :start_year => 1900, :end_year => Time.now.year-10
+    = f.input :birth_date, :as => :date, :start_year => Time.now.year-10, :end_year => 1900
     - if not current_user.profession.type == 2
       = f.input :ethnicity, :as => :select, :collection => @ethnicities, :prompt => "wybierz pochodzenie..."  
       = f.input :hair_color, :as => :select, :collection => @hair_colors, :prompt => 'wybierz kolor włosów...'
       = f.input :eye_color, :as => :select, :collection => @eye_colors, :prompt => 'wybierz kolor oczu...'
-      = f.input :height, :as => :select, :collection => @weight
-      = f.input :weight, :as => :select, :collection => @height
+      = f.input :height, :as => :select, :collection => @height
+      = f.input :weight, :as => :select, :collection => @weight
       - if current_user.gender == 'female'
         = f.input :bra, :as => :select, :collection => @bras
         = f.input :bust, :collection => @bust
@@ -28,7 +28,6 @@
       - if current_user.gender == 'male'
         = f.input :pants, :collection => @pants
         = f.input :neck, :collection => @neck
-    = f.input :prefered_region, :as => :select, :collection => @prefered_regions, :include_blank => false 
     = f.inputs "Zakres pracy" do
       = f.input :disciplines, :as => :check_boxes, :collection => @disciplines
     = f.inputs "Języki" do
@@ -37,13 +36,15 @@
       = f.inputs "Dyspozycyjność" do
         = f.input :availability, :as => :check_boxes, :collection => @availability_items
 
+    = f.input :prefered_region, :as => :select, :collection => @prefered_regions, :include_blank => false 
+
   = f.inputs :others do
-    = f.input :about, :as => :text
     = f.input :webpage
     = f.input :gadu_gadu
     = f.input :skype
-    = f.input :courses, :as => :text
-    = f.input :achievements, :as => :text
+    = f.input :courses
+    = f.input :achievements
+    = f.input :about, :as => :text
 
   = f.buttons do
     = f.commit_button
