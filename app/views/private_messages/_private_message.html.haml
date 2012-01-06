@@ -1,3 +1,20 @@
-%li
-  = link_to(private_message.title, private_message_path(private_message), :class => ["private_message",("unread" if private_message.unread?)])
-  = (check_box_tag 'private_message_ids[]', private_message.id) if private_message.receiver == current_user
+%tr{:class => ["row",("unread" if private_message.unread?)]}
+  %td
+    = (check_box_tag 'private_message_ids[]', private_message.id) if private_message.receiver == current_user
+  %td
+    = image_tag current_user.avatar_url, :alt => "Avatar", :class => :avatar
+  %td
+    = private_message.sender.full_name
+    %br/
+    %span
+      = private_message.created_at.strftime("%d.%m.%Y %H:%M")
+  %td
+    = link_to(private_message.title, private_message_path(private_message))
+    %br/
+    %span
+      = truncate(private_message.content, :length => 50)
+  %td
+    = link_to(image_tag("layout/pm-remove.png"), private_message_path(private_message), :confirm => "Jesteś pewny?", :method => :delete)
+    
+  
+  

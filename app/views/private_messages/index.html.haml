@@ -1,21 +1,28 @@
-= render :partial => 'layouts/edit_user_sidebar'
+- content_for :title, "Twoje prywatne wiadomości"
 
-#edit-user-content
-  .box
-    %h2
-      Twoje prywatne wiadomości
+#private-messages
+  = form_tag destroy_multiple_private_messages_path, :method => :post do
+    %fieldset
+      %table.private-messages
+        %tr.menu
+          %td{:colspan => 3}
+            %ul
+              %li{:class => ("selected" if params[:type] != :sent)}
+                = link_to 'Odebrane', received_private_messages_path()
+              %li{:class => ("selected" if params[:type] == :sent)}
+                = link_to 'Wysłane', sent_private_messages_path()
+          %td{:colspan => 2}
+            Czynności: 
+            = select_tag :action_select, options_for_select([['wybierz...'], ['usuń zaznaczone', 'remove_selected'], ['oznacz jako przeczytane', 'mark_as_read']])
+        %tr.head
+          %td{:colspan => 2}
+            = (check_box_tag "check_all", '1', false, :class => "checkall")
+          %td
+            Nadawca / Data
+          %td
+            Temat / Treść
+          %td
+            = paginate @messages
 
-    %h3
-      Odebrane
-
-    %ul
-      = form_tag destroy_multiple_private_messages_path, :method => :delete do
-        = render @received_messages
-        = submit_tag "Usuń zaznaczone" unless @received_messages.empty?
-
-    %h3
-      Wysłane
-
-    %ul
-      = render @sent_messages
+        = render @messages
 

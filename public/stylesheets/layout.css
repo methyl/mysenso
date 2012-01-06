@@ -658,3 +658,100 @@ body #sidebar ul.menu li a:hover {
   color: #ec25cb;
   background: url(../images/layout/dot-bullet-h.png) no-repeat right center;
 }
+/* line 273, ../../app/stylesheets/layout.sass */
+body #content #private-messages {
+  background-color: #f6f6f6;
+  padding: 5px;
+}
+/* line 281, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.menu {
+  background-color: #e2e2e2;
+}
+/* line 285, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.menu td:first-child {
+  padding: 0;
+}
+/* line 289, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.menu td:last-child {
+  text-align: right;
+}
+/* line 293, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.menu ul {
+  list-style-type: none;
+  padding-left: 2px;
+}
+/* line 299, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.menu ul li {
+  float: left;
+}
+/* line 305, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.menu ul li a {
+  color: #333333;
+  text-decoration: none;
+  display: block;
+  width: 75px;
+  height: 26px;
+  margin-top: 1px;
+  text-align: center;
+  line-height: 26px;
+  padding-top: 1px;
+  margin-right: 2px;
+  float: left;
+}
+/* line 331, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.menu ul li.selected a, body #content #private-messages table tr.menu ul li:hover a {
+  border-top: 1px solid #c27caf;
+  background-color: #f6f6f6;
+  padding-top: 0;
+  color: #c434ac;
+}
+/* line 343, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.head {
+  background-color: transparent;
+}
+/* line 347, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.head td:first-child {
+  padding-left: 10px;
+}
+/* line 351, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.head td {
+  font-weight: bold;
+}
+/* line 357, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.row {
+  background-color: white;
+}
+/* line 361, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.row td:first-child {
+  border-left: 5px solid white;
+}
+/* line 365, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.row td:last-child {
+  border-right: 5px solid white;
+  text-align: right;
+}
+/* line 373, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.row td {
+  border-bottom: 1px dotted #cccccc;
+}
+/* line 377, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.row td img {
+  vertical-align: middle;
+}
+/* line 381, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.row td img.avatar {
+  height: 48px;
+}
+/* line 385, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.row td span {
+  font-size: 10px;
+  color: #828282;
+}
+/* line 393, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.checked {
+  background-color: #f7f7f7;
+}
+/* line 399, ../../app/stylesheets/layout.sass */
+body #content #private-messages table tr.unread {
+  background-color: #f4e8f3;
+}

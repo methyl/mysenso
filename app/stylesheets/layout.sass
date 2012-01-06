@@ -132,6 +132,73 @@ body
           &:hover
             color: $pink-color
             background: url(../images/layout/dot-bullet-h.png) no-repeat right center
+          
+  #content
+    #private-messages
+      background-color: $light-bg-color
+      padding: 5px
+      table
+        tr.menu
+          background-color: $content-bg-color
+          td:first-child
+            padding: 0
+          td:last-child
+            text-align: right
+          ul
+            list-style-type: none
+            padding-left: 2px
+            li
+              float: left
+
+              a
+                color: $font-color
+                text-decoration: none
+                display: block
+                width: 75px
+                height: 26px
+                margin-top: 1px
+                text-align: center
+                line-height: 26px
+                padding-top: 1px
+                margin-right: 2px
+                float: left
+                
+              &.selected a, &:hover a
+                border-top: 1px solid #c27caf
+                background-color: $light-bg-color
+                padding-top: 0
+                color: #c434ac
+            
+        tr.head
+          background-color: transparent
+          td:first-child
+            padding-left: 10px
+          td
+            font-weight: bold
+
+        tr.row
+          background-color: #fff            
+          td:first-child
+            border-left: 5px solid #fff
+          td:last-child
+            border-right: 5px solid #fff
+            text-align: right
+          
+          td
+            border-bottom: 1px dotted $box-border-color
+            img
+              vertical-align: middle
+              &.avatar
+                height: 48px
+            span
+              font-size: 10px
+              color: $grey-text-color
+          
+        tr.checked
+          background-color: #f7f7f7
+            
+        tr.unread
+          background-color: $light-pink-color
 
       
 

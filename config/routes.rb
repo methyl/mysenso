@@ -19,9 +19,14 @@ Mysenso::Application.routes.draw do
   end
 
   resources :private_messages, :except => [:edit, :update] do
+ 
     collection do
-      delete 'destroy_multiple'
+      get 'received' => 'private_messages#index'
+      get 'sent' => 'private_messages#index', :defaults => { :type => :sent }
+      post 'destroy_multiple'
+      post 'mark_as_read_multiple'
     end
+    
   end
 
   resources :avatars
