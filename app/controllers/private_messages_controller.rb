@@ -6,9 +6,9 @@ class PrivateMessagesController < ApplicationController
   def index
     per_page = 5
     if params[:type] == :sent
-      @messages = current_user.received_messages.order_by([:created_at, :desc]).page(params[:page]).per(per_page)
-    else
       @messages = current_user.sent_messages.order_by([:created_at, :desc]).page(params[:page]).per(per_page)
+    else
+      @messages = current_user.received_messages.order_by([:created_at, :desc]).page(params[:page]).per(per_page)
     end
   end
 
