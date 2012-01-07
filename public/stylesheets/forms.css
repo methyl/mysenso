@@ -109,7 +109,7 @@ form.registration-form select {
 }
 /* line 395, ../../app/stylesheets/forms.sass */
 form.registration-form textarea {
-  background: url(../images/layout/input-text-bg.png) repeat-x top;
+  background: white url(../images/layout/input-text-bg.png) repeat-x top;
   font-family: Arial, sans-serif;
   height: 130px;
   width: 500px;

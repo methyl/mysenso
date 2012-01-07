@@ -2,9 +2,9 @@
   %td
     = (check_box_tag 'private_message_ids[]', private_message.id) if private_message.receiver == current_user
   %td
-    = image_tag current_user.avatar_url, :alt => "Avatar", :class => :avatar
+    = image_tag private_message.sender.avatar_url, :alt => "Avatar", :class => :avatar
   %td
-    = private_message.sender.full_name
+    = link_to private_message.sender.full_name, user_path(private_message.sender)
     %br/
     %span
       = private_message.created_at.strftime("%d.%m.%Y %H:%M")

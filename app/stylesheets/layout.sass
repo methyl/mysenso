@@ -22,7 +22,34 @@ form.default-form
   background-color: $darker-bg-color
   text-indent: 8px
   position: relative
+  
+@mixin side-avatar
+  background-color: $light-bg-color
+  margin: 10px auto
+  margin-top: 0
+  text-align: center
+  border: 1px solid $border-color
+  width: 176px
 
+  img.avatar
+    width: 160px
+    display: block
+    margin: 7px auto
+
+  .name
+    border-top: 1px solid $border-color
+    line-height: 24px
+    height: 24px
+    margin-bottom: 0
+    font-size: 14px
+    color: $dark-purple-color
+    font-weight: bold
+    font-family: Tahoma, sans-serif
+    a
+      text-decoration: none
+      color: $dark-purple-color
+      &:hover
+        text-decoration: underline
 body
   background: $blueprint-background-color url(../images/layout/bg.png) repeat-x
 
@@ -87,32 +114,9 @@ body
   #sidebar
     .padding
       padding: 0 6px 20px 6px
-
+      
     .avatar
-      background-color: $light-bg-color
-      margin: 10px auto
-      margin-top: 0
-      text-align: center
-      border: 1px solid $border-color
-
-      img
-        width: 160px
-        display: block
-        margin: 7px auto
-
-      a
-        border-top: 1px solid $border-color
-        line-height: 24px
-        height: 24px
-        margin-bottom: 0
-        font-size: 14px
-        color: $dark-purple-color
-        font-weight: bold
-        font-family: Tahoma, sans-serif
-        display: block
-        text-decoration: none
-        &:hover
-          text-decoration: underline
+      @include side-avatar
 
     ul.menu
       list-style-type: none
@@ -134,6 +138,59 @@ body
             background: url(../images/layout/dot-bullet-h.png) no-repeat right center
           
   #content
+    #private-message
+      background-color: $light-bg-color
+      position: relative
+      min-height: 240px
+      padding-bottom: 7px
+      .head
+        background-color: $content-bg-color
+        padding-left: 190px
+        overflow: hidden
+        height: 24px
+        line-height: 24px
+        a
+          display: block
+          float: left
+        .date
+          float: right
+          font-weight: bold
+          color: #000
+          padding-right: 5px
+      div.avatar
+        @include side-avatar
+        position: absolute
+        top: 3px
+        left: 7px
+        
+        a.delete
+          position: absolute
+          bottom: -27px
+          right: -1px
+          padding: 4px
+          padding-bottom: 0
+          border: 1px solid $border-color
+          border-top: none
+          background: $light-bg-color
+          
+      h3
+        padding-left: 190px
+        margin-bottom: 0px
+        font-size: 14px
+        font-weight: bold
+        line-height: 20px
+        height: 20px
+        color: $dark-purple-color
+      .content
+        padding-left: 185px
+        padding-top: 5px
+        min-height: 200px
+        background: #fff
+        margin: 0px 10px
+        
+      .reply
+        overflow: hidden
+          
     #private-messages
       background-color: $light-bg-color
       padding: 5px
@@ -162,6 +219,8 @@ body
                 padding-top: 1px
                 margin-right: 2px
                 float: left
+                position: relative
+                top: 1px
                 
               &.selected a, &:hover a
                 border-top: 1px solid #c27caf
@@ -197,7 +256,7 @@ body
         tr.checked
           background-color: #f7f7f7
             
-        tr.unread
+        tr.unread, tr:hover
           background-color: $light-pink-color
 
       

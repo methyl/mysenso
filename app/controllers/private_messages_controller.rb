@@ -15,6 +15,7 @@ class PrivateMessagesController < ApplicationController
   def show
     @message = PrivateMessage.find(params[:id])
     @message.read! if @message.receiver == current_user
+    @reply = PrivateMessage.new 
   end
 
   def new
@@ -30,7 +31,7 @@ class PrivateMessagesController < ApplicationController
       render :new
     end
   end
-
+  
   def destroy_multiple
     unless params[:private_message_ids].nil?
       messages = PrivateMessage.where(:_id.in => params[:private_message_ids])

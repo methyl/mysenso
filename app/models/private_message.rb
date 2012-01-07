@@ -21,4 +21,8 @@ class PrivateMessage
   def unread?
     not self.read
   end
+  
+  def reply_title
+    "Re: "+title
+  end
 end

@@ -1,5 +1,23 @@
 - content_for :title, "Twoje prywatne wiadomości"
 
-%h2= @message.title
+#private-message
+  .head
+    = link_to "powrót do odebranych", private_messages_path
+    .date
+      = @message.created_at.strftime("%d.%m.%Y %H:%M")
+  .avatar
+    = image_tag @message.sender.avatar_url, :alt => "Avatar", :class => :avatar
+    .name
+      = link_to @message.sender.full_name, user_path(@message.sender)
+    = link_to(image_tag("layout/pm-remove.png"), private_message_path(@message), :confirm => "Jesteś pewny?", :method => :delete, :class => :delete)
 
-%p= @message.content
+  %h3= @message.title
+  .content= @message.content
+
+  .reply
+    = semantic_form_for @reply, :html => {:class => "default-form"} do |f|
+      = f.hidden_field :receiver, :value => @message.receiver_id
+      = f.hidden_field :title, :value => @message.reply_title
+      = f.inputs do
+        = f.input :content, :as => :text, :label => "Odpowiedź"
+        = f.submit
