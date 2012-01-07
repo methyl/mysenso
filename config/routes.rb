@@ -1,5 +1,9 @@
 # -*- encoding : utf-8 -*-
 Mysenso::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resource :user do
     resource :avatar do
       collection do

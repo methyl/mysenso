@@ -35,6 +35,8 @@
   cities.each do |city|
     City.create(:name => city.strip)
   end
+  
+  AdminUser.create(:email => 'lucjansuski@gmail.com', :password => 'niepowiem', :password_confirmation => 'niepowiem')
 
 
   
