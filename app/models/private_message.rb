@@ -2,7 +2,6 @@
 class PrivateMessage
   include Mongoid::Document
   include Mongoid::Timestamps
-  include ActiveAdmin::Mongoid::Patches
 
   field :title
   field :content

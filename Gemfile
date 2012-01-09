@@ -23,7 +23,6 @@ gem 'fog'
 gem "compass", ">= 0.11.5"
 gem 'jammit-s3'
 gem 'bluecloth'
-gem 'activeadmin'
 
 group :development, :test do
   gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :branch => 'mongoid-brute-force'

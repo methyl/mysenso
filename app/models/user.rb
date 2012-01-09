@@ -2,7 +2,6 @@
 class User
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes 
-  include ActiveAdmin::Mongoid::Patches
 
   # Common fields
   field :first_name
