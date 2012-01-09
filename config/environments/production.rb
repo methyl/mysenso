@@ -33,7 +33,9 @@ Mysenso::Application.configure do
   config.serve_static_assets = false
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = "http://s3-eu-west-1.amazonaws.com/cdn01.mysenso"
+  config.action_controller.asset_host = Proc.new do |source|
+    "http://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
+  end
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -58,7 +60,12 @@ Mysenso::Application.configure do
   :domain         => ENV['SENDGRID_DOMAIN']
   }
   config.action_mailer.default_url_options = { :host => 'mysenso.herokuapp.com' }
+  # Compress JavaScript and CSS
+  config.assets.compress = true
 
-  config.assets.precompile += %w[active_admin.css active_admin.js]
-  
+  # Don't fallback to assets pipeline
+  config.assets.compile = true
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
 end

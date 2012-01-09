@@ -2,10 +2,8 @@
 %html
   %head
     %title Mysenso
-    = include_stylesheets :libs, :media => :all
-    = include_stylesheets :screen, :media => 'screen, projection'
-    = include_stylesheets :print, :media => :print
-    = include_javascripts :workspace
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
     /[if lt IE 8]
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
     /[if IE 6]
