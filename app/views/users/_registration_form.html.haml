@@ -14,6 +14,6 @@
     #profile-fields{:style => resource.company && "display:none"}
       = f.input :profession_id, :as => :select, :collection => Profession.find(:all), :label => true, :include_blank => false,  :prompt => "wybierz profesję..."
       = f.input :gender, :as => :select, :collection => {"Mężczyzna" => :male, "Kobieta" => :female}, :prompt => "wybierz płeć..."
-    = f.commit_button 'Zarejestruj się', :button_html => { :type => "image", :src => "#{asset_path}/images/layout/register-button.png"}
+    = f.commit_button 'Zarejestruj się', :button_html => { :type => "image", :src => asset_path('layout/register-button.png')}
 
   = render :partial => "devise/shared/links"

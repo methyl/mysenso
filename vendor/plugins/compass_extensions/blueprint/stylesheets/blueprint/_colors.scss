@@ -3,9 +3,7 @@ $quiet-color:    lighten($font-color, 20%) !default;
 $loud-color:     darken($font-color, 13.33%) !default;
 $header-color:   darken($font-color, 6.67%) !default;
 $alt-text-color: #666666 !default;
-$blueprint-background-color: #260424 !default;
 $blueprint-border-color: #ddd !default;
-$border-color: $blueprint-border-color;
 
 
 $link-color:         #a53b93                  !default;
@@ -37,13 +35,3 @@ $removed-bg-color:      #990000 !default;
 $blueprint-table-header-color: #c3d9ff !default;
 $blueprint-table-stripe-color: #e5ecf9 !default;
 
-$content-bg-color: #e2e2e2;
-$box-bg-color: #fff;
-$box-border-color: #ccc;
-$darker-bg-color: #f6f6f6;
-$top-menu-color: #c6a2c1;
-$dark-purple-color: #593553;
-$pink-color: #ec25cb;
-$light-pink-color: #f4e8f3;
-$light-bg-color: #f6f6f6;
-$grey-text-color: #828282;

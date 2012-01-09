@@ -20,7 +20,7 @@ gem 'factory_girl'
 gem 'dalli'
 gem 'unicorn'
 gem 'fog'
-gem "compass", ">= 0.11.5"
+
 gem 'jammit-s3'
 gem 'bluecloth'
 
@@ -38,4 +38,5 @@ group :assets do
   gem 'sass-rails', " ~> 3.1.0"
   gem 'coffee-rails', " ~> 3.1.0"
   gem 'uglifier'
+  gem "compass", "~> 0.12.alpha.0"
 end

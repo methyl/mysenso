@@ -5,3 +5,4 @@ log/*.log
 tmp/
 .DS_Store
 .ds_store
+.sass-cache/
