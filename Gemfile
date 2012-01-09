@@ -20,8 +20,7 @@ gem 'factory_girl'
 gem 'dalli'
 gem 'unicorn'
 gem 'fog'
-
-gem 'jammit-s3'
+gem "asset_sync", "~> 0.2.4"
 gem 'bluecloth'
 
 group :development, :test do
