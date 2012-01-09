@@ -20,8 +20,8 @@ gem 'factory_girl'
 gem 'dalli'
 gem 'unicorn'
 gem 'fog'
-gem "asset_sync", "~> 0.2.4"
 gem 'bluecloth'
+gem 's3'
 
 group :development, :test do
   gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :branch => 'mongoid-brute-force'
