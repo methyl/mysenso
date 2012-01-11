@@ -31,7 +31,7 @@ Mysenso::Application.configure do
   :password       => ENV['GMAIL_PASSWORD']
   }
   config.action_mailer.default_url_options = { :host => '192.168.5.4:3000' }
-  
+  config.assets.compile = true
   # Do not compress assets
   config.assets.compress = false
 
