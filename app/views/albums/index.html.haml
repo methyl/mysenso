@@ -1,8 +1,5 @@
 - content_for :title, "Albumy użytkownika #{@user.login}"
-
 #albums
-  - @albums.each do |album|
-    .album
-      = image_tag album.thumbnail_url, :alt => album.title, :title => album.title, :class => :thumbnail
-      .title
-        = album.title
+  = render @albums
+    
+= paginate @albums

@@ -1,5 +1,5 @@
 %li
-  = link_to(image_tag(photo.image_url(:thumb), :class => "photo"), photo_path(photo))
+  = link_to(image_tag(photo.image_url(:thumb), :class => "photo"), album_photo_path(album, photo))
   = photo.title
   - if photo.user == current_user
     = link_to "Edytuj", edit_photo_path(photo)

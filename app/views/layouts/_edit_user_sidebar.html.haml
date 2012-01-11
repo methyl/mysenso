@@ -9,7 +9,7 @@
 
       %ul.menu
         %li= link_to(current_user.received_messages.unread.empty? ? 'Wiadomości' : "Nowe wiadomości: #{current_user.received_messages.unread.count}", private_messages_path)
-        %li= link_to "Galeria zdjęć", manage_photos_path
+        %li= link_to "Galeria zdjęć", manage_albums_path
         %li= link_to "Edycja awataru", user_avatar_path
         %li= link_to "Edycja danych", edit_user_path
         -unless current_user.company?

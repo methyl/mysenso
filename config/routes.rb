@@ -32,9 +32,15 @@ Mysenso::Application.routes.draw do
 
   resources :avatars
 
-  resources :photos do
+  resources :albums do
+    resources :photos
+    
     collection do
       get 'manage'
+    end
+    
+    member do
+      get 'manage', :action => 'manage_photos'
     end
   end
 
@@ -50,6 +56,7 @@ Mysenso::Application.routes.draw do
     end
     resource :private_message, :only => [:new]
     resources :references, :only => [:new, :create]
+    resources :albums, :only => [:index]
   end
   get '/users/:id' => 'users#show', :as => 'user'
   put '/users/:id' => 'users#update', :as => 'user'

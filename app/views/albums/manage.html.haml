@@ -1,5 +1,12 @@
 - content_for :title, "Twoje albumy"
 
-
-- @albums.each do |album|
-  = album.title
+#albums
+  - if params[:action] == 'manage'
+    .album.add
+      = link_to (image_tag "layout/new_album.png", :alt => "Dodaj album", :title => "Dodaj album", :class => :thumbnail), new_album_path
+      .title
+        = link_to "Dodaj album", new_album_path
+      
+  = render @albums
+    
+= paginate @albums

@@ -4,11 +4,16 @@ class Album
   field :description, :type => String
   field :public, :type => Boolean, :default => true
   
+  key :title
+  
   has_many :photos
-  has_one :thumbnail, :class_name => "Photo"
   belongs_to :user
   
   validates_presence_of :title, :description
+    
+  def thumbnail
+    photos.thumbnails.first
+  end
   
   def thumbnail_url
     (thumbnail and thumbnail.image_url) ? thumbnail.image_url : "no_photo.png"
